@@ -92,7 +92,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_get_proveedores", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_proveedores", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;

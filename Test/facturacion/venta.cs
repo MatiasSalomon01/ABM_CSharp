@@ -70,7 +70,6 @@ namespace Test
             panel3.BringToFront();
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             c_valor_cl += 1;
@@ -89,7 +88,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_cliente.sp_get_cliente", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_cliente", oracle);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -106,7 +105,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_get_producto", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_producto", oracle);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -187,7 +186,7 @@ namespace Test
                     {
                         oracle.Open();
 
-                        OracleCommand query = new OracleCommand("pkg_facturacion.sp_create_detalle", oracle);
+                        OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_detalle", oracle);
                         query.CommandType = CommandType.StoredProcedure;
 
                         query.Parameters.Add("id_pro", OracleType.Int32).Value = id_pro;
@@ -230,7 +229,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_facturacion.sp_get_last_detalle2", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_last_detalle2", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("id_", OracleType.Int32).Direction = ParameterDirection.Output;
@@ -258,8 +257,8 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_facturacion.sp_create_cabecera", oracle);
-            OracleCommand query1 = new OracleCommand("pkg_facturacion.sp_get_id_pago_by_name", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_cabecera", oracle);
+            OracleCommand query1 = new OracleCommand("pkg_abm_system.sp_get_id_pago_by_name", oracle);
 
             query.CommandType = CommandType.StoredProcedure;
             query1.CommandType = CommandType.StoredProcedure;
@@ -283,7 +282,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_facturacion.sp_get_forma_pagos", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_forma_pagos", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
@@ -301,7 +300,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_check_stock", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_check_stock", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("id_", OracleType.Int16).Value = id_produc;
@@ -329,7 +328,7 @@ namespace Test
                 save.FileName = nombreArchivo;
 
                 oracle.Open();
-                OracleCommand query = new OracleCommand("pkg_facturacion.sp_get_factura_num", oracle);
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_factura_num", oracle);
                 query.CommandType = CommandType.StoredProcedure;
 
                 query.Parameters.Add("data", OracleType.VarChar).Value = nombreArchivo;
@@ -381,6 +380,11 @@ namespace Test
                         stream.Close();
                     }
                 }
+                txt_cliente_ruc.Clear();
+                txt_cliente_nombre.Clear();
+                txt_id_producto.Clear();
+                txt_cantidad.Clear();
+                cbPagos.ResetText();
                 dataGridView1.Rows.Clear();
                 try
                 {
@@ -451,7 +455,7 @@ namespace Test
         private string reestablecer_stock(string producto, string cantidad)
         {
             oracle.Open();
-            OracleCommand query = new OracleCommand("pkg_producto.sp_add_stock", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_add_stock", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("id_", OracleType.Int32).Value = Convert.ToInt32(producto);

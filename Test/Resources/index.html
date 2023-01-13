@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factura</title>
+    <style>
+        table.border {
+            border-collapse: collapse;
+        }
+
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            table.border td {
+                padding: 10px;
+                border: 1px solid black;
+            }
+        div {
+            position: absolute;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <img src="C:\Users\msalomon\Pictures\clt.png" alt="Alternate Text" />
+    </div>
+    <br />
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%"></td>
+            <td style="width:60%" valign="top">
+
+                <table>
+                    <tr>
+                        <td align="center"><h4 style="margin:0px">CLT S.A</h4></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            Direccion: Ayolas 437, Asuncion
+                        </td>
+                    </tr>
+                    <tr><td align="center">Telefono: 0985-838.848</td></tr>
+                </table>
+            </td>
+            <td style="width:20%">
+                <table class="border" style="width:100%">
+                    <tr><td align="center" style="background-color:#D8D8D8">FACTURA</td></tr>
+                    <tr><td align="center">N°: @NRO</td></tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr><td colspan="3" height="20"></td></tr>
+
+        <tr>
+            <td colspan="2">
+                <table style="width:100%">
+                    <tr>
+                        <td colspan="1" style="width:40%">Nombre o Razon Social:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@CLIENTE</td>
+                    </tr>
+                </table>
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:35%">Documento:</td>
+                        <td style="width:30%; border-bottom: 1px solid black">@DOCUMENTO</td>
+                        <td style="width:35%">Fecha de Emision:</td>
+                        <td style="width:40%;border-bottom:1px solid black">@FECHA</td>
+                    </tr>
+                </table>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr><td colspan="3" height="30"></td></tr>
+
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%;">
+                    <thead>
+                        <tr style="background-color:#D8D8D8">
+                            <th>ID Producto</th>
+                            <th>Descripcion</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Importe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @FILAS
+                        <tr>
+                            <td style="border: 0px !important"></td>
+                            <td style="border: 0px !important"></td>
+                            <td style="border: 0px !important"></td>
+                            <td>Monto Total:</td>
+                            <td>@TOTAL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD1E22F4-2D01-4B22-97DC-B8C6D1745746}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Test</RootNamespace>
+    <AssemblyName>Test</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cliente\actualizar_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cliente\actualizar_cliente.Designer.cs">
+      <DependentUpon>actualizar_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cliente\crear_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cliente\crear_cliente.Designer.cs">
+      <DependentUpon>crear_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producto\producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="producto\producto.Designer.cs">
+      <DependentUpon>producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cliente\eliminar_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cliente\eliminar_cliente.Designer.cs">
+      <DependentUpon>eliminar_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login\login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login\login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menu\manejo_de_datos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menu\manejo_de_datos.Designer.cs">
+      <DependentUpon>manejo_de_datos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menu\menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menu\menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usuario\crear_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuario\crear_usuario.Designer.cs">
+      <DependentUpon>crear_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cliente\seleccionar_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cliente\seleccionar_cliente.Designer.cs">
+      <DependentUpon>seleccionar_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl2.Designer.cs">
+      <DependentUpon>UserControl2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl3.Designer.cs">
+      <DependentUpon>UserControl3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControl\UserControl4.Designer.cs">
+      <DependentUpon>UserControl4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="facturacion\venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="facturacion\venta.Designer.cs">
+      <DependentUpon>venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cliente\visualizar_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cliente\visualizar_cliente.Designer.cs">
+      <DependentUpon>visualizar_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="cliente\actualizar_cliente.resx">
+      <DependentUpon>actualizar_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cliente\crear_cliente.resx">
+      <DependentUpon>crear_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\producto.resx">
+      <DependentUpon>producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cliente\eliminar_cliente.resx">
+      <DependentUpon>eliminar_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu\manejo_de_datos.resx">
+      <DependentUpon>manejo_de_datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu\menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usuario\crear_usuario.resx">
+      <DependentUpon>crear_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cliente\seleccionar_cliente.resx">
+      <DependentUpon>seleccionar_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControl\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControl\UserControl2.resx">
+      <DependentUpon>UserControl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControl\UserControl3.resx">
+      <DependentUpon>UserControl3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControl\UserControl4.resx">
+      <DependentUpon>UserControl4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="facturacion\venta.resx">
+      <DependentUpon>venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cliente\visualizar_cliente.resx">
+      <DependentUpon>visualizar_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gradienta-UF_wwDxI6uk-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trashcan_106521.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index.html" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

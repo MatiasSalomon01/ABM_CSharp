@@ -56,6 +56,7 @@ namespace Test
                 this.Close();
                 var menu = new menu(user);
                 menu.Visible = true;
+               
             }
         }
 
@@ -79,18 +80,10 @@ namespace Test
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex == 0)
-            /*if (dataGridView1.SelectedRows.Count != 0)
-            {
-                DataGridViewRow row = this.dataGridView1.SelectedRows[0];
-            
-                MessageBox.Show(row.Cells["ColumnName"].Value.ToString());
-            }*/
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -109,12 +102,10 @@ namespace Test
 
         private void label6_Click(object sender, EventArgs e)
         {
-
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void show_clientes()
@@ -261,9 +252,8 @@ namespace Test
                 }
             }
             oracle.Close();
-            //dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count);
-
         }
+
         private void rellenar_detalle(int c)
         {
             oracle.Open();
@@ -547,6 +537,12 @@ namespace Test
                 var cantidad = dataGridView1.Rows[fila_seleccionada].Cells[2].Value?.ToString();*/
                 reestablecer_stock(row.Cells[0].Value.ToString(), row.Cells[2].Value.ToString());
             }
+        }
+
+        private void btn_eliminar_todo_Click(object sender, EventArgs e)
+        {
+            listar_filas();
+            dataGridView1.Rows.Clear();
         }
     }
 }

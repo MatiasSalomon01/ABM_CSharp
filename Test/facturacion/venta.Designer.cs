@@ -406,6 +406,7 @@
             this.btn_eliminar_todo.TabIndex = 14;
             this.btn_eliminar_todo.Text = "Eliminar Todo";
             this.btn_eliminar_todo.UseVisualStyleBackColor = true;
+            this.btn_eliminar_todo.Click += new System.EventHandler(this.btn_eliminar_todo_Click);
             // 
             // venta
             // 
@@ -426,6 +427,7 @@
             this.KeyPreview = true;
             this.Name = "venta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "2";
             this.Load += new System.EventHandler(this.venta_Load);
             this.Click += new System.EventHandler(this.venta_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.venta_KeyDown);

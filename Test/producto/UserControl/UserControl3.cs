@@ -37,7 +37,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_get_producto", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_producto", oracle);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -62,12 +62,12 @@ namespace Test
                 textBox2.Text = row.Cells[2].Value.ToString();
                 textBox3.Text = row.Cells[3].Value.ToString();
                 oracle.Open();
-                OracleCommand query = new OracleCommand("pkg_producto.sp_get_name_categoria", oracle);
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_name_categoria", oracle);
                 query.CommandType = CommandType.StoredProcedure;
                 query.Parameters.Add("id_", OracleType.Int16).Value = Convert.ToInt16(row.Cells[4].Value.ToString());
                 query.Parameters.Add("nom", OracleType.Cursor).Direction = ParameterDirection.Output;
 
-                OracleCommand query1 = new OracleCommand("pkg_producto.sp_get_name_proveedor", oracle);
+                OracleCommand query1 = new OracleCommand("pkg_abm_system.sp_get_name_proveedor", oracle);
                 query1.CommandType = CommandType.StoredProcedure;
                 query1.Parameters.Add("id_", OracleType.Int16).Value = Convert.ToInt16(row.Cells[5].Value.ToString());
                 query1.Parameters.Add("nom", OracleType.Cursor).Direction = ParameterDirection.Output;
@@ -85,17 +85,14 @@ namespace Test
 
                 num = Convert.ToInt16(row.Cells[0].Value.ToString());
             }
-            catch
-            {
-
-            }
+            catch {}
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_update_producto_by_id", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_update_producto_by_id", oracle);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("num", OracleType.Int16).Value = num;
             query.Parameters.Add("nom", OracleType.VarChar).Value = txt_nom.Text;
@@ -113,7 +110,6 @@ namespace Test
 
             get_data();
 
-
             txt_nom.Clear();
             textBox2.Clear();
             textBox3.Clear();
@@ -126,7 +122,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_get_categorias", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_categorias", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
@@ -138,7 +134,6 @@ namespace Test
                 comboBox1.Items.Add(dr.GetString(0));
             }
 
-            Console.WriteLine(query.Parameters["registros"].Value);
             oracle.Close();
         }
 
@@ -146,7 +141,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_get_proveedores", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_proveedores", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
@@ -157,8 +152,6 @@ namespace Test
             {
                 comboBox2.Items.Add(dr.GetString(0));
             }
-
-            Console.WriteLine(query.Parameters["registros"].Value);
             oracle.Close();
         }
     }

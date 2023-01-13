@@ -29,17 +29,12 @@ namespace Test
             get_data();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void get_data()
         {
             oracle.Open();
 
 
-            OracleCommand query = new OracleCommand("pkg_cliente.sp_get_cliente", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_cliente", oracle);
             query.CommandType= CommandType.StoredProcedure;
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 

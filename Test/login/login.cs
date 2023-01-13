@@ -32,21 +32,6 @@ namespace Test
         {
             this.BackColor = Color.FromArgb(219, 255, 204);
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
      
         private void button1_Click(object sender, EventArgs e)
         {
@@ -111,7 +96,7 @@ namespace Test
             oracle.Open();
             Boolean status = true;
             int num = 0;
-            OracleCommand query = new OracleCommand("pkg_cliente.sp_validate_user", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_validate_user", oracle);
             query.Parameters.Add("user_name", DbType.String).Value = usuario;
             query.Parameters.Add("user_pass", DbType.String).Value = passwrd;
             query.Parameters.Add("respuesta", DbType.Int16).Value = num;
@@ -142,18 +127,10 @@ namespace Test
                 this.Close();
             }
         }
-        private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-
-        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void label5_MouseHover(object sender, EventArgs e)
-        {
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -163,22 +140,10 @@ namespace Test
             this.Hide();
         }
 
-        private void label5_MouseEnter(object sender, EventArgs e)
-        {
-            label5.Font = new Font(label5.Font.Name, label5.Font.SizeInPoints, FontStyle.Underline);
-            label5.ForeColor = Color.Purple;
-
-        }
-
         private void label5_MouseLeave(object sender, EventArgs e)
         {
             label5.Font = new Font(label5.Font.Name, label5.Font.SizeInPoints, FontStyle.Regular);
             label5.ForeColor = Color.Black;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -199,10 +199,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(756, 193);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // Column1
             // 
@@ -260,7 +256,6 @@
             this.label4.Size = new System.Drawing.Size(98, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "ID Producto:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel2
             // 
@@ -296,7 +291,6 @@
             this.txt_cantidad.TabIndex = 8;
             this.txt_cantidad.Text = "1";
             this.txt_cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_cantidad.TextChanged += new System.EventHandler(this.txt_cantidad_TextChanged);
             this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidad_KeyPress);
             // 
             // label5
@@ -326,7 +320,6 @@
             this.panel3.Size = new System.Drawing.Size(756, 274);
             this.panel3.TabIndex = 8;
             this.panel3.Visible = false;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // dataGridView2
             // 
@@ -339,7 +332,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(756, 261);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // label6
             // 

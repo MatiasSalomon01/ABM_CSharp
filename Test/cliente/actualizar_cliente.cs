@@ -58,7 +58,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_cliente.sp_get_cliente", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_cliente", oracle);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
@@ -103,7 +103,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_cliente.sp_update_cliente_by_id", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_update_cliente_by_id", oracle);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("num", OracleType.Int16).Value = num;
             query.Parameters.Add("nom", OracleType.VarChar).Value = textBox1.Text;

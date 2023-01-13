@@ -19,12 +19,6 @@ namespace Test
         {
             InitializeComponent();
             oracle = new OracleConnection("DATA SOURCE = CONEXION_CLIENT ; PASSWORD = 123 ; USER ID = SYSTEM;");
-
-        }
-
-        private void guardar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Form4_KeyDown(object sender, KeyEventArgs e)
@@ -36,12 +30,6 @@ namespace Test
                 login.Visible = true;
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void guardar_Click_1(object sender, EventArgs e)
         {
             oracle.Open();
@@ -55,12 +43,8 @@ namespace Test
             string usu = txt_usu.Text;
             string contra = txt_contra.Text.ToString();
 
-
             if ((nom != "") && (ape != "")&&(direcc != "") && (fecha_nac != "")&&(tel != "") && (email != "")&&(usu != "") && (contra != ""))
             {
-                /*OracleCommand query = new OracleCommand("insert into usuario (name, passwrd) values ('" + usu + "', '" + contra + "')", oracle);
-
-                query.ExecuteNonQuery();*/
 
                 OracleCommand query = new OracleCommand("pkg_cliente.sp_create_user", oracle);
                 query.Parameters.Add("nom", DbType.String).Value = nom;
@@ -93,7 +77,6 @@ namespace Test
 
             oracle.Close();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

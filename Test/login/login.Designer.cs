@@ -50,7 +50,6 @@
             this.label1.Size = new System.Drawing.Size(164, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Inicio de Sesión";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -61,7 +60,6 @@
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Usuario:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -115,7 +113,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(342, 29);
             this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -140,9 +137,7 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Aquí";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            this.label5.MouseEnter += new System.EventHandler(this.label5_MouseEnter);
             this.label5.MouseLeave += new System.EventHandler(this.label5_MouseLeave);
-            this.label5.MouseHover += new System.EventHandler(this.label5_MouseHover);
             // 
             // login
             // 
@@ -163,7 +158,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

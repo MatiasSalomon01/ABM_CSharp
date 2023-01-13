@@ -22,7 +22,6 @@ namespace Test
             user = u;
             InitializeComponent();
             this.Text = "Usuario: " + user;
-            //current_user.Text +=" "+ user;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -38,10 +37,6 @@ namespace Test
                 var form3 = new menu(user);
                 form3.Visible = true;
             }
-        }
-
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -33,22 +33,16 @@ namespace Test
                 var nombre = row.Cells[1].Value.ToString();
                 var apellido = row.Cells[2].Value.ToString();
 
-                var num = Convert.ToInt16(row.Cells[0].Value.ToString());
-
-                //var cliente = new DataCliente(num, nombre, apellido);   
-                
+                var num = Convert.ToInt16(row.Cells[0].Value.ToString()); 
             }
-            catch
-            {
-
-            }
+            catch{}
         }
 
         private void seleccionar_cliente_Load(object sender, EventArgs e)
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_cliente.sp_get_cliente", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_cliente", oracle);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 

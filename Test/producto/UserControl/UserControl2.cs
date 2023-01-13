@@ -19,9 +19,7 @@ namespace Test
         {
             InitializeComponent();
             oracle = new OracleConnection("DATA SOURCE = CONEXION_CLIENT ; PASSWORD = 123 ; USER ID = SYSTEM;");
-
         }
-
         private void UserControl2_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(219, 255, 204);
@@ -31,7 +29,6 @@ namespace Test
         private void get_data()
         {
             oracle.Open();
-
 
             OracleCommand query = new OracleCommand("pkg_producto.sp_get_producto", oracle);
             query.CommandType = CommandType.StoredProcedure;
@@ -46,7 +43,6 @@ namespace Test
 
             oracle.Close();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             get_data();
@@ -56,11 +52,9 @@ namespace Test
         {
             button1.BackColor = Color.FromArgb(149, 229, 115);
         }
-
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackColor = Color.FromArgb(187, 255, 159);
-
         }
     }
 }

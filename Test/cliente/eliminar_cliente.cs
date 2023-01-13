@@ -59,7 +59,7 @@ namespace Test
             {
                 var txt_data = Int32.Parse(txt_dato.Text);
                 oracle.Open();
-                OracleCommand query = new OracleCommand("pkg_cliente.sp_exists_cliente", oracle);
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_exists_cliente", oracle);
                 query.CommandType = CommandType.StoredProcedure;
 
                 query.Parameters.Add("num", OracleType.Int32).Value = txt_data;
@@ -73,7 +73,7 @@ namespace Test
                 {
                     if ("0".Equals(cb_data))
                     {
-                        OracleCommand query1 = new OracleCommand("pkg_cliente.sp_find_cliente_by_id", oracle);
+                        OracleCommand query1 = new OracleCommand("pkg_abm_system.sp_find_cliente_by_id", oracle);
                         query1.CommandType = CommandType.StoredProcedure;
 
                         query1.Parameters.Add("data", OracleType.Int32).Value = txt_data;
@@ -127,7 +127,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_cliente.sp_delete_cliente_by_id", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_delete_cliente_by_id", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("data", OracleType.Int32).Value = id;

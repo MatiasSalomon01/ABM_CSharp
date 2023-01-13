@@ -15,7 +15,6 @@ namespace Test
     public partial class UserControl4 : UserControl
     {
         OracleConnection oracle;
-
         public UserControl4()
         {
             InitializeComponent();
@@ -34,7 +33,7 @@ namespace Test
             {
                 var txt_data = Int32.Parse(txt_dato.Text);
                 oracle.Open();
-                OracleCommand query = new OracleCommand("pkg_producto.sp_exists_producto", oracle);
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_exists_producto", oracle);
                 query.CommandType = CommandType.StoredProcedure;
 
                 query.Parameters.Add("num", OracleType.Int32).Value = txt_data;
@@ -48,7 +47,7 @@ namespace Test
                 {
                     if ("0".Equals(cb_data))
                     {
-                        OracleCommand query1 = new OracleCommand("pkg_producto.sp_find_producto_by_id", oracle);
+                        OracleCommand query1 = new OracleCommand("pkg_abm_system.sp_find_producto_by_id", oracle);
                         query1.CommandType = CommandType.StoredProcedure;
 
                         query1.Parameters.Add("data", OracleType.Int32).Value = txt_data;
@@ -81,7 +80,7 @@ namespace Test
         {
             this.BackColor = Color.FromArgb(219, 255, 204);
             dataGridView1.BackgroundColor = Color.FromArgb(219, 255, 204);
-            }
+        }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -107,7 +106,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_delete_producto_by_id", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_delete_producto_by_id", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("data", OracleType.Int32).Value = id;
@@ -126,12 +125,10 @@ namespace Test
                 {
                     e.Handled = true;
                 }
-
                 /*if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
                 {
                     e.Handled = true;
                 }*/
-
             }
         }
     }

@@ -30,10 +30,7 @@ namespace Test
         int c_valor_cl = 0;
         int c_valor_p = 0;
         
-        //string path = "C:\\Users\\msalomon\\Documents\\Oracle\\Facturas";
-
         OracleConnection oracle;
-
         public venta()
         {
             InitializeComponent();
@@ -44,10 +41,8 @@ namespace Test
             InitializeComponent();
             oracle = new OracleConnection("DATA SOURCE = CONEXION_CLIENT ; PASSWORD = 123 ; USER ID = SYSTEM;");
             this.Text = "Usuario: " + user;
-            //panel3.Hide();
 
         }
-
         private void venta_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -56,7 +51,6 @@ namespace Test
                 this.Close();
                 var menu = new menu(user);
                 menu.Visible = true;
-               
             }
         }
 
@@ -65,7 +59,6 @@ namespace Test
             this.BackColor = Color.FromArgb(219, 255, 204);
             dataGridView1.BackgroundColor = Color.FromArgb(219, 255, 204);
             dataGridView2.BackgroundColor = Color.FromArgb(219, 255, 204);
-
 
             var dateTime = DateTime.Now;
             var shortDateValue = dateTime.ToShortDateString();
@@ -76,14 +69,6 @@ namespace Test
             rellenar_forma_pago();
             panel3.BringToFront();
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -98,14 +83,6 @@ namespace Test
                 panel3.Hide();
                 c_valor_cl = 0;
             }
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
 
         private void show_clientes()
@@ -169,11 +146,6 @@ namespace Test
             catch
             {
             }
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btn_ver_Click(object sender, EventArgs e)
@@ -409,25 +381,14 @@ namespace Test
                         stream.Close();
                     }
                 }
+                dataGridView1.Rows.Clear();
                 try
                 {
                     System.Diagnostics.Process.Start("C:\\Users\\msalomon\\Documents\\Oracle\\Facturas\\" + nombreArchivo);
                 }
-                catch
-                {
-
-                }
+                catch {}
             }
-            else
-            {
-                MessageBox.Show("Datos Necesarios incompletos");
-            }
-
-        }
-
-        private void txt_cantidad_TextChanged(object sender, EventArgs e)
-        {
-
+            else {MessageBox.Show("Datos Necesarios incompletos");}
         }
 
         private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -447,7 +408,6 @@ namespace Test
         {
             panel3.Hide();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             listar_filas();
@@ -456,27 +416,10 @@ namespace Test
             menu.Show();
         }
 
-        private void dataGridView1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                //DataGridViewRow row = dataGridView1.CurrentRow;
-                //var fila_seleccionada = dataGridView1.CurrentRow.Index;
-
                 if (dataGridView1.CurrentCell != null)
                 {
                     var fila_seleccionada = dataGridView1.CurrentRow.Index;
@@ -502,10 +445,7 @@ namespace Test
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message);}
         }
 
         private string reestablecer_stock(string producto, string cantidad)
@@ -528,13 +468,10 @@ namespace Test
             return res;
         }
 
-
         private void listar_filas()
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                /*var id_produc = dataGridView1.Rows[fila_seleccionada].Cells[0].Value?.ToString();
-                var cantidad = dataGridView1.Rows[fila_seleccionada].Cells[2].Value?.ToString();*/
                 reestablecer_stock(row.Cells[0].Value.ToString(), row.Cells[2].Value.ToString());
             }
         }

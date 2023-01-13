@@ -122,11 +122,8 @@
             this.btn_crear.Text = "Crear";
             this.btn_crear.UseVisualStyleBackColor = true;
             this.btn_crear.Click += new System.EventHandler(this.button1_Click_1);
-            this.btn_crear.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_crear_MouseClick);
-            this.btn_crear.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_crear_MouseDown);
             this.btn_crear.MouseEnter += new System.EventHandler(this.btn_crear_MouseEnter);
             this.btn_crear.MouseLeave += new System.EventHandler(this.btn_crear_MouseLeave);
-            this.btn_crear.MouseHover += new System.EventHandler(this.btn_crear_MouseHover);
             // 
             // panel_seleccion
             // 

@@ -20,7 +20,6 @@ namespace Test
         {
             InitializeComponent();
             oracle = new OracleConnection("DATA SOURCE = CONEXION_CLIENT ; PASSWORD = 123 ; USER ID = SYSTEM;");
-
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -32,7 +31,6 @@ namespace Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
                 try
                 {
                     oracle.Open();
@@ -46,13 +44,12 @@ namespace Test
                     if ((nom != "") && (precio != "") && (stock != "") && (categoria != "") && (proveedor != ""))
                     {
 
-                        OracleCommand query = new OracleCommand(" pkg_producto.sp_create_producto", oracle);
+                        OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_producto", oracle);
                         query.Parameters.Add("nom", DbType.String).Value = nom;
                         query.Parameters.Add("precio", DbType.String).Value = precio;
                         query.Parameters.Add("stock", DbType.String).Value = stock;
                         query.Parameters.Add("id_cat", DbType.String).Value = categoria;
                         query.Parameters.Add("id_prov", DbType.String).Value = proveedor;
-
 
                         query.CommandType = CommandType.StoredProcedure;
 
@@ -63,17 +60,13 @@ namespace Test
                     {
                         MessageBox.Show("Error - Usuario o Contraseña incompleta");
                     }
-
                     textBox1.Clear();
                     textBox2.Clear();
                     textBox3.Clear();
                     comboBox1.ResetText();
                     comboBox2.ResetText();
                 }
-                catch
-                {
-
-                }
+                catch { }
 
                 oracle.Close();
         }
@@ -81,7 +74,7 @@ namespace Test
         {
             oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_producto.sp_get_categorias", oracle);
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_categorias", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
             query.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
@@ -92,8 +85,6 @@ namespace Test
             {
                 comboBox1.Items.Add(dr.GetString(0));
             }
-
-            //Console.WriteLine(query.Parameters["registros"].Value);
             oracle.Close();
         }
 
@@ -113,7 +104,6 @@ namespace Test
                 comboBox2.Items.Add(dr.GetString(0));
             }
 
-            //Console.WriteLine(query.Parameters["registros"].Value);
             oracle.Close();
         }
 

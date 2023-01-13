@@ -117,23 +117,23 @@
     <Compile Include="producto\UserControl\crear_producto.Designer.cs">
       <DependentUpon>crear_producto.cs</DependentUpon>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl2.cs">
+    <Compile Include="producto\UserControl\visualizar_producto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl2.Designer.cs">
-      <DependentUpon>UserControl2.cs</DependentUpon>
+    <Compile Include="producto\UserControl\visualizar_producto.Designer.cs">
+      <DependentUpon>visualizar_producto.cs</DependentUpon>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl3.cs">
+    <Compile Include="producto\UserControl\actualizar_producto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl3.Designer.cs">
-      <DependentUpon>UserControl3.cs</DependentUpon>
+    <Compile Include="producto\UserControl\actualizar_producto.Designer.cs">
+      <DependentUpon>actualizar_producto.cs</DependentUpon>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl4.cs">
+    <Compile Include="producto\UserControl\eliminar_producto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl4.Designer.cs">
-      <DependentUpon>UserControl4.cs</DependentUpon>
+    <Compile Include="producto\UserControl\eliminar_producto.Designer.cs">
+      <DependentUpon>eliminar_producto.cs</DependentUpon>
     </Compile>
     <Compile Include="facturacion\venta.cs">
       <SubType>Form</SubType>
@@ -179,14 +179,14 @@
     <EmbeddedResource Include="producto\UserControl\crear_producto.resx">
       <DependentUpon>crear_producto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="producto\UserControl\UserControl2.resx">
-      <DependentUpon>UserControl2.cs</DependentUpon>
+    <EmbeddedResource Include="producto\UserControl\visualizar_producto.resx">
+      <DependentUpon>visualizar_producto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="producto\UserControl\UserControl3.resx">
-      <DependentUpon>UserControl3.cs</DependentUpon>
+    <EmbeddedResource Include="producto\UserControl\actualizar_producto.resx">
+      <DependentUpon>actualizar_producto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="producto\UserControl\UserControl4.resx">
-      <DependentUpon>UserControl4.cs</DependentUpon>
+    <EmbeddedResource Include="producto\UserControl\eliminar_producto.resx">
+      <DependentUpon>eliminar_producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="facturacion\venta.resx">
       <DependentUpon>venta.cs</DependentUpon>

@@ -14,6 +14,7 @@ namespace Test
 {
     public partial class visualizar_producto : UserControl
     {
+        
         OracleConnection oracle;
         public visualizar_producto()
         {
@@ -24,9 +25,8 @@ namespace Test
         {
             this.BackColor = Color.FromArgb(219, 255, 204);
             dataGridView1.BackgroundColor = Color.FromArgb(219, 255, 204);
-            get_data();
         }
-        private void get_data()
+        public void get_data()
         {
             oracle.Open();
 

@@ -39,6 +39,10 @@
             this.userControl31 = new Test.actualizar_producto();
             this.userControl21 = new Test.visualizar_producto();
             this.userControl11 = new Test.crear_producto();
+            this.crear_producto1 = new Test.crear_producto();
+            this.visualizar_producto1 = new Test.visualizar_producto();
+            this.actualizar_producto1 = new Test.actualizar_producto();
+            this.eliminar_producto1 = new Test.eliminar_producto();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,18 +170,50 @@
             this.userControl11.Size = new System.Drawing.Size(635, 477);
             this.userControl11.TabIndex = 11;
             // 
+            // crear_producto1
+            // 
+            this.crear_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.crear_producto1.Location = new System.Drawing.Point(216, 12);
+            this.crear_producto1.Name = "crear_producto1";
+            this.crear_producto1.Size = new System.Drawing.Size(635, 477);
+            this.crear_producto1.TabIndex = 16;
+            // 
+            // visualizar_producto1
+            // 
+            this.visualizar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.visualizar_producto1.Location = new System.Drawing.Point(216, 12);
+            this.visualizar_producto1.Name = "visualizar_producto1";
+            this.visualizar_producto1.Size = new System.Drawing.Size(635, 477);
+            this.visualizar_producto1.TabIndex = 17;
+            // 
+            // actualizar_producto1
+            // 
+            this.actualizar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.actualizar_producto1.Location = new System.Drawing.Point(216, 12);
+            this.actualizar_producto1.Name = "actualizar_producto1";
+            this.actualizar_producto1.Size = new System.Drawing.Size(635, 562);
+            this.actualizar_producto1.TabIndex = 18;
+            // 
+            // eliminar_producto1
+            // 
+            this.eliminar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.eliminar_producto1.Location = new System.Drawing.Point(216, 12);
+            this.eliminar_producto1.Name = "eliminar_producto1";
+            this.eliminar_producto1.Size = new System.Drawing.Size(635, 477);
+            this.eliminar_producto1.TabIndex = 19;
+            // 
             // producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 576);
+            this.Controls.Add(this.eliminar_producto1);
+            this.Controls.Add(this.actualizar_producto1);
+            this.Controls.Add(this.visualizar_producto1);
+            this.Controls.Add(this.crear_producto1);
             this.Controls.Add(this.panel_seleccion);
-            this.Controls.Add(this.userControl41);
-            this.Controls.Add(this.userControl31);
-            this.Controls.Add(this.userControl21);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.userControl11);
             this.ForeColor = System.Drawing.Color.Black;
             this.KeyPreview = true;
             this.Name = "producto";
@@ -202,5 +238,9 @@
         private actualizar_producto userControl31;
         private eliminar_producto userControl41;
         private System.Windows.Forms.Panel panel_seleccion;
+        private crear_producto crear_producto1;
+        private visualizar_producto visualizar_producto1;
+        private actualizar_producto actualizar_producto1;
+        private eliminar_producto eliminar_producto1;
     }
 }

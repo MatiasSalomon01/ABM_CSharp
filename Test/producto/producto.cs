@@ -41,10 +41,10 @@ namespace Test
             btn_eliminar.BackColor = Color.FromArgb(187, 255, 159);
             btn_actualizar.BackColor = Color.FromArgb(187, 255, 159);
 
-            userControl11.Hide();
-            userControl21.Hide();
-            userControl31.Hide();
-            userControl41.Hide();
+            crear_producto1.Hide();
+            visualizar_producto1.Hide();
+            actualizar_producto1.Hide();
+            eliminar_producto1.Hide();
         }
 
 
@@ -72,10 +72,10 @@ namespace Test
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            userControl31.Hide();
-            userControl21.Hide();
-            userControl41.Hide();
-            userControl11.Visible = true;
+            visualizar_producto1.Hide();
+            actualizar_producto1.Hide();
+            eliminar_producto1.Hide();
+            crear_producto1.Visible = true;
             panel_seleccion.Location = new Point(-4, 81);
             panel_seleccion.BackColor = Color.Green;
             
@@ -83,30 +83,31 @@ namespace Test
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            userControl11.Hide();
-            userControl31.Hide();
-            userControl41.Hide();   
-            userControl21.Visible = true;
+            crear_producto1.Hide();
+            actualizar_producto1.Hide();
+            eliminar_producto1.Hide();
+            visualizar_producto1.Visible = true;
+            visualizar_producto1.get_data();
             panel_seleccion.Location = new Point(-4, 155);
             panel_seleccion.BackColor = Color.Green;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            userControl11.Hide();
-            userControl21.Hide();
-            userControl41.Hide();
-            userControl31.Visible = true;
+            crear_producto1.Hide();
+            visualizar_producto1.Hide();
+            eliminar_producto1.Hide();
+            actualizar_producto1.Visible = true;
             panel_seleccion.Location = new Point(-4, 228);
             panel_seleccion.BackColor = Color.Green;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            userControl11.Hide();
-            userControl21.Hide();
-            userControl31.Hide();
-            userControl41.Visible = true;
+            crear_producto1.Hide();
+            visualizar_producto1.Hide();
+            actualizar_producto1.Hide();
+            eliminar_producto1.Visible = true;
             panel_seleccion.Location = new Point(-4, 301);
             panel_seleccion.BackColor = Color.Green;
         }

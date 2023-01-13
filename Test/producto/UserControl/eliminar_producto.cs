@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace Test
 {
-    public partial class UserControl4 : UserControl
+    public partial class eliminar_producto : UserControl
     {
         OracleConnection oracle;
-        public UserControl4()
+        public eliminar_producto()
         {
             InitializeComponent();
             oracle = new OracleConnection("DATA SOURCE = CONEXION_CLIENT ; PASSWORD = 123 ; USER ID = SYSTEM;");

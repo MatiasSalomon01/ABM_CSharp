@@ -1,6 +1,6 @@
 ﻿namespace Test
 {
-    partial class UserControl2
+    partial class visualizar_producto
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

@@ -111,11 +111,11 @@
     <Compile Include="cliente\seleccionar_cliente.Designer.cs">
       <DependentUpon>seleccionar_cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl1.cs">
+    <Compile Include="producto\UserControl\crear_producto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="producto\UserControl\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="producto\UserControl\crear_producto.Designer.cs">
+      <DependentUpon>crear_producto.cs</DependentUpon>
     </Compile>
     <Compile Include="producto\UserControl\UserControl2.cs">
       <SubType>UserControl</SubType>
@@ -176,8 +176,8 @@
     <EmbeddedResource Include="cliente\seleccionar_cliente.resx">
       <DependentUpon>seleccionar_cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="producto\UserControl\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="producto\UserControl\crear_producto.resx">
+      <DependentUpon>crear_producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="producto\UserControl\UserControl2.resx">
       <DependentUpon>UserControl2.cs</DependentUpon>

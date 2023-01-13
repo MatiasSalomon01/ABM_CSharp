@@ -383,7 +383,7 @@ namespace Test
                 txt_cliente_ruc.Clear();
                 txt_cliente_nombre.Clear();
                 txt_id_producto.Clear();
-                txt_cantidad.Clear();
+                txt_cantidad.Text = "1";
                 cbPagos.ResetText();
                 dataGridView1.Rows.Clear();
                 try

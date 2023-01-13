@@ -35,10 +35,10 @@
             this.btn_visualizar = new System.Windows.Forms.Button();
             this.btn_crear = new System.Windows.Forms.Button();
             this.panel_seleccion = new System.Windows.Forms.Panel();
-            this.userControl41 = new Test.UserControl4();
-            this.userControl31 = new Test.UserControl3();
-            this.userControl21 = new Test.UserControl2();
-            this.userControl11 = new Test.UserControl1();
+            this.userControl41 = new Test.eliminar_producto();
+            this.userControl31 = new Test.actualizar_producto();
+            this.userControl21 = new Test.visualizar_producto();
+            this.userControl11 = new Test.crear_producto();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,15 +192,15 @@
 
         #endregion
         private System.Windows.Forms.Button button10;
-        private UserControl1 userControl11;
+        private crear_producto userControl11;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_crear;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_actualizar;
         private System.Windows.Forms.Button btn_visualizar;
-        private UserControl2 userControl21;
-        private UserControl3 userControl31;
-        private UserControl4 userControl41;
+        private visualizar_producto userControl21;
+        private actualizar_producto userControl31;
+        private eliminar_producto userControl41;
         private System.Windows.Forms.Panel panel_seleccion;
     }
 }

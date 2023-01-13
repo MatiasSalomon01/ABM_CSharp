@@ -14,12 +14,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Test
 {
-    public partial class UserControl3 : UserControl
+    public partial class actualizar_producto : UserControl
     {
         OracleConnection oracle;
         int num;
         
-        public UserControl3()
+        public actualizar_producto()
         {
             InitializeComponent();
             oracle = new OracleConnection("DATA SOURCE = CONEXION_CLIENT ; PASSWORD = 123 ; USER ID = SYSTEM;");

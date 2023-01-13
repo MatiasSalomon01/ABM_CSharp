@@ -1,6 +1,6 @@
 ﻿namespace Test
 {
-    partial class UserControl4
+    partial class eliminar_producto
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

@@ -30,6 +30,8 @@ namespace Test
         int c_valor_cl = 0;
         int c_valor_p = 0;
         string tel, direc;
+
+        List<Int32> lista_id_detalles = new List<Int32>();
         
         OracleConnection oracle;
         public venta()
@@ -196,10 +198,13 @@ namespace Test
 
                         query.Parameters.Add("id_pro", OracleType.Int32).Value = id_pro;
                         query.Parameters.Add("cantidad", OracleType.Int32).Value = cantidad;
+                        query.Parameters.Add("last_detalle", OracleType.Int32).Direction = ParameterDirection.Output;
 
                         try
                         {
                             query.ExecuteNonQuery();
+
+                            lista_id_detalles.Add(Convert.ToInt32(query.Parameters["last_detalle"].Value));
 
                             oracle.Close();
                             rellenar_detalle(c);
@@ -395,6 +400,7 @@ namespace Test
                 try
                 {
                     System.Diagnostics.Process.Start("C:\\Users\\msalomon\\Documents\\Oracle\\Facturas\\" + nombreArchivo);
+
                 }
                 catch {}
             }
@@ -444,6 +450,10 @@ namespace Test
 
                         if (dialogResult == DialogResult.Yes)
                         {
+                            for (int i = 0; i < lista_id_detalles.Count; i++)
+                            {
+                                eliminar_detalle(lista_id_detalles[i]);
+                            }
                             dataGridView1.Rows.RemoveAt(fila_seleccionada);
 
                             var res = reestablecer_stock(id_produc, cantidad);
@@ -490,7 +500,28 @@ namespace Test
         {
             listar_filas();
             dataGridView1.Rows.Clear();
-            txt_id_producto.Clear();
+
+            for (int i = 0; i < lista_id_detalles.Count; i++)
+            {
+                eliminar_detalle(lista_id_detalles[i]);
+            }
+
+            suma = 0;
+            txt_monto_final.Text = "Gs "+suma;
+
+
+        }
+
+        private void eliminar_detalle(int num)
+        {
+            oracle.Open();
+            OracleCommand query = new OracleCommand("pkg_abm_system.sp_delete_detalle_by_id", oracle);
+            query.CommandType= CommandType.StoredProcedure;
+
+            query.Parameters.Add("id_", OracleType.Int32).Value = num;
+            query.ExecuteNonQuery();
+
+            oracle.Close();
         }
     }
 }

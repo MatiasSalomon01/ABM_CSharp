@@ -73,7 +73,7 @@
             this.cb_buscar.Name = "cb_buscar";
             this.cb_buscar.Size = new System.Drawing.Size(189, 32);
             this.cb_buscar.TabIndex = 3;
-            this.cb_buscar.Text = "ID";
+            this.cb_buscar.Text = "Cedula";
             // 
             // label2
             // 

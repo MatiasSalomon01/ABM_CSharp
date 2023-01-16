@@ -48,6 +48,7 @@ namespace Test
         {
             oracle.Open();
 
+            string ced = txt_cedula.Text;
             string nom = txt_nom.Text;
             string ape = txt_ape.Text;
             string direcc = txt_direcc.Text;
@@ -56,9 +57,10 @@ namespace Test
             string email = txt_email.Text;
 
 
-            if ((nom != "") && (ape != "") && (direcc != "") && (fecha_nac != "") && (tel != "") && (email != ""))
+            if ((ced != "") && (nom != "") && (ape != "") && (direcc != "") && (fecha_nac != "") && (tel != "") && (email != ""))
             {
                 OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_cliente", oracle);
+                query.Parameters.Add("ced", OracleType.Int32).Value = Convert.ToInt32(ced);
                 query.Parameters.Add("nom", DbType.String).Value = nom;
                 query.Parameters.Add("ape", DbType.String).Value = ape;
                 query.Parameters.Add("direcc", DbType.String).Value = direcc;
@@ -76,6 +78,7 @@ namespace Test
                 MessageBox.Show("Error - Campos incompletos");
             }
 
+            txt_cedula.Clear();
             txt_nom.Clear();
             txt_ape.Clear();
             txt_direcc.Clear();
@@ -91,6 +94,14 @@ namespace Test
             this.Close();
             var manejo_de_datos = new manejo_de_datos(user);
             manejo_de_datos.Visible = true;
+        }
+
+        private void txt_cedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

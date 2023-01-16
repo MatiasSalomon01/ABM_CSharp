@@ -145,5 +145,10 @@ namespace Test
             label5.Font = new Font(label5.Font.Name, label5.Font.SizeInPoints, FontStyle.Regular);
             label5.ForeColor = Color.Black;
         }
+
+        private void login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

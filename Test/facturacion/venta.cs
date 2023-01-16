@@ -29,6 +29,7 @@ namespace Test
         int estado = 1;
         int c_valor_cl = 0;
         int c_valor_p = 0;
+        string tel, direc;
         
         OracleConnection oracle;
         public venta()
@@ -130,6 +131,8 @@ namespace Test
 
                     txt_cliente_ruc.Text = row.Cells[0].Value.ToString();
                     txt_cliente_nombre.Text = row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString();
+                    direc = row.Cells[3].Value.ToString();
+                    tel = row.Cells[5].Value.ToString();
                     panel3.Hide();
 
                 }
@@ -184,6 +187,8 @@ namespace Test
 
                     if (0.Equals(msg))
                     {
+                        rellenar_cabecera(forma_pago);
+
                         oracle.Open();
 
                         OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_detalle", oracle);
@@ -197,8 +202,6 @@ namespace Test
                             query.ExecuteNonQuery();
 
                             oracle.Close();
-
-                            rellenar_cabecera(forma_pago);
                             rellenar_detalle(c);
 
                             estado = 0;
@@ -270,7 +273,7 @@ namespace Test
 
             query.Parameters.Add("nom_emisor", OracleType.VarChar).Value = txt_emisor.Text;
             query.Parameters.Add("fecha", OracleType.VarChar).Value = txt_fecha.Text;
-            query.Parameters.Add("id_cliente", OracleType.Int16).Value = Int16.Parse(txt_cliente_ruc.Text);
+            query.Parameters.Add("ci_cliente", OracleType.Int32).Value = Int32.Parse(txt_cliente_ruc.Text);
             query.Parameters.Add("id_forma_pago", OracleType.Int16).Value = query1.Parameters["id_"].Value;
 
             query.ExecuteNonQuery();
@@ -342,6 +345,9 @@ namespace Test
                 html_text = html_text.Replace("@DOCUMENTO", txt_cliente_ruc.Text);
                 html_text = html_text.Replace("@FECHA", txt_fecha.Text);
                 html_text = html_text.Replace("@NRO", query.Parameters["boleto"].Value.ToString());
+                html_text = html_text.Replace("@TELEFONO", tel);
+                html_text = html_text.Replace("@FORMA", cbPagos.SelectedItem.ToString());
+                html_text = html_text.Replace("@DIRECCION", direc);
 
                 oracle.Close();
 
@@ -349,11 +355,11 @@ namespace Test
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     filas += "<tr>";
-                    filas += "<td>" + row.Cells["Column1"].Value?.ToString() + "</td>";
-                    filas += "<td>" + row.Cells["Column2"].Value?.ToString() + "</td>";
-                    filas += "<td>" + row.Cells["Column3"].Value?.ToString() + "</td>";
-                    filas += "<td>" + row.Cells["Column4"].Value?.ToString() + "</td>";
-                    filas += "<td>" + row.Cells["Column5"].Value?.ToString() + "</td>";
+                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column1"].Value?.ToString() + "</td>";
+                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column2"].Value?.ToString() + "</td>";
+                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column3"].Value?.ToString() + "</td>";
+                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column4"].Value?.ToString() + "</td>";
+                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column5"].Value?.ToString() + "</td>";
                     filas += "</tr>";
                 }
 
@@ -484,6 +490,7 @@ namespace Test
         {
             listar_filas();
             dataGridView1.Rows.Clear();
+            txt_id_producto.Clear();
         }
     }
 }

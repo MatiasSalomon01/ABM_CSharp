@@ -61,6 +61,16 @@ namespace Test.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon computer_23805 {
+            get {
+                object obj = ResourceManager.GetObject("computer_23805", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap fondo {
@@ -91,18 +101,34 @@ namespace Test.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
-        ///&lt;html lang=&quot;en&quot;&gt;
+        ///   Busca una cadena traducida similar a 
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;meta charset=&quot;UTF-8&quot;&gt;
-        ///    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        ///    &lt;title&gt;Document&lt;/title&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///    
-        ///&lt;/body&gt;
-        ///&lt;/html&gt;.
+        ///    &lt;title&gt;Factura&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table {
+        ///            border-collapse: collapse;
+        ///            border: 1px solid;
+        ///        }
+        ///
+        ///        .td1 {
+        ///            padding: 10px;
+        ///            border: 1px solid black;
+        ///        }
+        ///
+        ///        .cuerpo {
+        ///            border-collapse: collapse;
+        ///            border: 0px solid;
+        ///            text-align: center;
+        ///            margin-top: 10px;
+        ///        }
+        ///
+        ///        p {
+        ///            text-align: center;
+        ///        }
+        ///    &lt;/style&gt;
+        /// [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string index {
             get {

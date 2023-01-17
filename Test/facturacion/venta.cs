@@ -390,13 +390,17 @@ namespace Test
                         facturapdf.Close();
                         stream.Close();
                     }
+
+                    cbPagos.SelectedItem = null;
+                    txt_cliente_ruc.Clear();
+                    txt_cliente_nombre.Clear();
+                    txt_id_producto.Clear();
+                    txt_cantidad.Text = "1";
+                    dataGridView1.Rows.Clear();
+                    suma = 0;
+                    txt_monto_final.Text = "Gs " + suma;
                 }
-                txt_cliente_ruc.Clear();
-                txt_cliente_nombre.Clear();
-                txt_id_producto.Clear();
-                txt_cantidad.Text = "1";
-                cbPagos.ResetText();
-                dataGridView1.Rows.Clear();
+
                 try
                 {
                     System.Diagnostics.Process.Start("C:\\Users\\msalomon\\Documents\\Oracle\\Facturas\\" + nombreArchivo);
@@ -404,7 +408,8 @@ namespace Test
                 }
                 catch {}
             }
-            else {MessageBox.Show("Datos Necesarios incompletos");}
+            else {MessageBox.Show("Datos Necesarios incompletos");
+            }
         }
 
         private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -508,8 +513,6 @@ namespace Test
 
             suma = 0;
             txt_monto_final.Text = "Gs "+suma;
-
-
         }
 
         private void eliminar_detalle(int num)

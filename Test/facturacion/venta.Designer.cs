@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(venta));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbPagos = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -416,6 +417,7 @@
             this.Controls.Add(this.btn_finalizar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "venta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

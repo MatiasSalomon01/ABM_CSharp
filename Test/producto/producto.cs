@@ -98,6 +98,7 @@ namespace Test
             visualizar_producto1.Hide();
             eliminar_producto1.Hide();
             actualizar_producto1.Visible = true;
+            actualizar_producto1.get_data();
             panel_seleccion.Location = new Point(-4, 228);
             panel_seleccion.BackColor = Color.Green;
         }

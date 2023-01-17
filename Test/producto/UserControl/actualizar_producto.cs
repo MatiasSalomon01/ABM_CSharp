@@ -33,7 +33,7 @@ namespace Test
             rellenar_categorias();
             rellenar_proveedores();
         }
-        private void get_data()
+        public void get_data()
         {
             oracle.Open();
 

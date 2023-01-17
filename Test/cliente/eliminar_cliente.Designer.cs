@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eliminar_cliente));
             this.label1 = new System.Windows.Forms.Label();
             this.txt_dato = new System.Windows.Forms.TextBox();
             this.cb_buscar = new System.Windows.Forms.ComboBox();
@@ -170,6 +171,7 @@
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "eliminar_cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -66,7 +66,13 @@ namespace Test
                     comboBox1.ResetText();
                     comboBox2.ResetText();
                 }
-                catch { }
+                catch (OracleException err)
+                {
+                    if (err.Code == 06502)
+                    {
+                    MessageBox.Show("Campos de Precio y Stock deben ser numericos");
+                    }
+                }
 
                 oracle.Close();
         }

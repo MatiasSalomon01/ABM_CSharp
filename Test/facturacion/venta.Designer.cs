@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,6 +111,8 @@
             // 
             // txt_cliente_nombre
             // 
+            this.txt_cliente_nombre.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_cliente_nombre.Enabled = false;
             this.txt_cliente_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cliente_nombre.Location = new System.Drawing.Point(179, 76);
             this.txt_cliente_nombre.Name = "txt_cliente_nombre";
@@ -129,6 +132,7 @@
             // 
             // txt_fecha
             // 
+            this.txt_fecha.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_fecha.Enabled = false;
             this.txt_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_fecha.Location = new System.Drawing.Point(581, 15);
@@ -139,6 +143,8 @@
             // 
             // txt_cliente_ruc
             // 
+            this.txt_cliente_ruc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_cliente_ruc.Enabled = false;
             this.txt_cliente_ruc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cliente_ruc.Location = new System.Drawing.Point(85, 76);
             this.txt_cliente_ruc.Name = "txt_cliente_ruc";
@@ -147,6 +153,7 @@
             // 
             // txt_emisor
             // 
+            this.txt_emisor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_emisor.Enabled = false;
             this.txt_emisor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_emisor.Location = new System.Drawing.Point(85, 18);
@@ -191,6 +198,7 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -201,9 +209,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(756, 193);
             this.dataGridView1.TabIndex = 1;
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "ID";
+            this.Column6.Name = "Column6";
+            // 
             // Column1
             // 
-            this.Column1.HeaderText = "ID";
+            this.Column1.HeaderText = "ID Producto";
             this.Column1.Name = "Column1";
             // 
             // Column2
@@ -287,12 +300,14 @@
             // 
             this.txt_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cantidad.Location = new System.Drawing.Point(387, 7);
+            this.txt_cantidad.MaxLength = 7;
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(82, 26);
             this.txt_cantidad.TabIndex = 8;
             this.txt_cantidad.Text = "1";
             this.txt_cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cantidad_KeyPress);
+            this.txt_cantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_cantidad_KeyUp);
             // 
             // label5
             // 
@@ -306,6 +321,8 @@
             // 
             // txt_id_producto
             // 
+            this.txt_id_producto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_id_producto.Enabled = false;
             this.txt_id_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id_producto.Location = new System.Drawing.Point(121, 7);
             this.txt_id_producto.Name = "txt_id_producto";
@@ -458,11 +475,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox txt_cliente_nombre;
         private System.Windows.Forms.Button btn_ver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_monto_final;
         private System.Windows.Forms.ComboBox cbPagos;
@@ -471,5 +483,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_eliminar_todo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

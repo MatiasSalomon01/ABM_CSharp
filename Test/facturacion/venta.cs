@@ -24,9 +24,9 @@ namespace Test
     public partial class venta : Form
     {
         string user;
+        int id_conteo = 1;
         int valor = 0;
         int suma = 0;
-        int estado = 1;
         int c_valor_cl = 0;
         int c_valor_p = 0;
         string tel, direc;
@@ -172,7 +172,7 @@ namespace Test
             var id_pro = txt_id_producto.Text;
             var cantidad = txt_cantidad.Text;
             string forma_pago;
-            if (cbPagos.SelectedItem == null)
+            if (cbPagos.SelectedItem == null )
             {
                 MessageBox.Show("Error - Datos necesarios Incompletos");
             }
@@ -208,8 +208,6 @@ namespace Test
 
                             oracle.Close();
                             rellenar_detalle(c);
-
-                            estado = 0;
                         }
                         catch (OracleException err)
                         {
@@ -220,15 +218,9 @@ namespace Test
                             oracle.Close();
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Stock Insuficiente, quedan " + msg);
-                    }
+                    else{ MessageBox.Show("Stock Insuficiente, quedan " + msg); }
                 }
-                else
-                {
-                    MessageBox.Show("Error - Datos necesarios Incompletos");
-                }
+                else{ MessageBox.Show("Error - Datos necesarios Incompletos"); }
             }
             oracle.Close();
         }
@@ -253,8 +245,8 @@ namespace Test
             var nom = query1.ExecuteReader();
             nom.Read();
 
-            dataGridView1.Rows.Add(new object[] { query.Parameters["id_"].Value, nom.GetString(0), c, query.Parameters["pre"].Value, monto });
-
+            dataGridView1.Rows.Add(new object[] { id_conteo, query.Parameters["id_"].Value, nom.GetString(0), c, query.Parameters["pre"].Value, monto });
+            id_conteo += 1;
             suma += monto;
             txt_monto_final.Text = "Gs " + suma.ToString();
 
@@ -272,14 +264,14 @@ namespace Test
             query1.CommandType = CommandType.StoredProcedure;
 
             query1.Parameters.Add("nom", OracleType.VarChar).Value = pago;
-            query1.Parameters.Add("id_", OracleType.Int16).Direction = ParameterDirection.Output;
+            query1.Parameters.Add("id_", OracleType.Int32).Direction = ParameterDirection.Output;
 
             query1.ExecuteNonQuery();
 
             query.Parameters.Add("nom_emisor", OracleType.VarChar).Value = txt_emisor.Text;
             query.Parameters.Add("fecha", OracleType.VarChar).Value = txt_fecha.Text;
             query.Parameters.Add("ci_cliente", OracleType.Int32).Value = Int32.Parse(txt_cliente_ruc.Text);
-            query.Parameters.Add("id_forma_pago", OracleType.Int16).Value = query1.Parameters["id_"].Value;
+            query.Parameters.Add("id_forma_pago", OracleType.Int32).Value = query1.Parameters["id_"].Value;
 
             query.ExecuteNonQuery();
 
@@ -311,13 +303,13 @@ namespace Test
             OracleCommand query = new OracleCommand("pkg_abm_system.sp_check_stock", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
-            query.Parameters.Add("id_", OracleType.Int16).Value = id_produc;
-            query.Parameters.Add("cant", OracleType.Int16).Value = cant;
-            query.Parameters.Add("msg", OracleType.Int16).Direction = ParameterDirection.Output;
+            query.Parameters.Add("id_", OracleType.Int32).Value = id_produc;
+            query.Parameters.Add("cant", OracleType.Int32).Value = cant;
+            query.Parameters.Add("msg", OracleType.Int32).Direction = ParameterDirection.Output;
 
             query.ExecuteNonQuery();
 
-            int msg = Convert.ToInt16(query.Parameters["msg"].Value);
+            int msg = Convert.ToInt32(query.Parameters["msg"].Value);
 
             oracle.Close();
 
@@ -326,90 +318,96 @@ namespace Test
 
         private void btn_finalizar_Click(object sender, EventArgs e)
         {
-            if (0.Equals(estado))
+            if (0.Equals(check_empty_data()))
             {
-                var longDateValue = DateTime.Now.ToString("dd-MM-yyy-HH.mm.ss");
-
-                SaveFileDialog save = new SaveFileDialog();
-                string nombreArchivo = txt_cliente_ruc.Text + txt_cliente_nombre.Text + "_" + longDateValue + ".pdf";
-
-                save.FileName = nombreArchivo;
-
-                oracle.Open();
-                OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_factura_num", oracle);
-                query.CommandType = CommandType.StoredProcedure;
-
-                query.Parameters.Add("data", OracleType.VarChar).Value = nombreArchivo;
-                query.Parameters.Add("boleto", OracleType.Int16).Direction = ParameterDirection.Output;
-
-                query.ExecuteNonQuery();
-
-
-                string html_text = Properties.Resources.index.ToString();
-                html_text = html_text.Replace("@CLIENTE", txt_cliente_nombre.Text);
-                html_text = html_text.Replace("@DOCUMENTO", txt_cliente_ruc.Text);
-                html_text = html_text.Replace("@FECHA", txt_fecha.Text);
-                html_text = html_text.Replace("@NRO", query.Parameters["boleto"].Value.ToString());
-                html_text = html_text.Replace("@TELEFONO", tel);
-                html_text = html_text.Replace("@FORMA", cbPagos.SelectedItem.ToString());
-                html_text = html_text.Replace("@DIRECCION", direc);
-
-                oracle.Close();
-
-                string filas = string.Empty;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                if(dataGridView1.RowCount > 0)
                 {
-                    filas += "<tr>";
-                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column1"].Value?.ToString() + "</td>";
-                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column2"].Value?.ToString() + "</td>";
-                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column3"].Value?.ToString() + "</td>";
-                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column4"].Value?.ToString() + "</td>";
-                    filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column5"].Value?.ToString() + "</td>";
-                    filas += "</tr>";
-                }
+                    var longDateValue = DateTime.Now.ToString("dd-MM-yyy-HH.mm.ss");
 
-                html_text = html_text.Replace("@FILAS", filas);
-                html_text = html_text.Replace("@TOTAL", txt_monto_final.Text);
+                    SaveFileDialog save = new SaveFileDialog();
+                    string nombreArchivo = txt_cliente_ruc.Text + txt_cliente_nombre.Text + "_" + longDateValue + ".pdf";
+
+                    save.FileName = nombreArchivo;
+                    save.Filter = "Archivos como |*.pdf";
+
+                    oracle.Open();
+                    OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_factura_num", oracle);
+                    query.CommandType = CommandType.StoredProcedure;
+
+                    query.Parameters.Add("data", OracleType.VarChar).Value = nombreArchivo;
+                    query.Parameters.Add("boleto", OracleType.Int32).Direction = ParameterDirection.Output;
+
+                    query.ExecuteNonQuery();
 
 
-                if (save.ShowDialog() == DialogResult.OK)
-                {
-                    using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
+                    string html_text = Properties.Resources.index.ToString();
+                    html_text = html_text.Replace("@CLIENTE", txt_cliente_nombre.Text);
+                    html_text = html_text.Replace("@DOCUMENTO", txt_cliente_ruc.Text);
+                    html_text = html_text.Replace("@FECHA", txt_fecha.Text);
+                    html_text = html_text.Replace("@NRO", query.Parameters["boleto"].Value.ToString());
+                    html_text = html_text.Replace("@TELEFONO", tel);
+                    html_text = html_text.Replace("@FORMA", cbPagos.SelectedItem.ToString());
+                    html_text = html_text.Replace("@DIRECCION", direc);
+
+                    oracle.Close();
+
+                    string filas = string.Empty;
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        Document facturapdf = new Document(PageSize.A4, 25, 25, 25, 25);
-                        PdfWriter writer = PdfWriter.GetInstance(facturapdf, stream);
-
-                        facturapdf.Open();
-                        facturapdf.Add(new Phrase());
-
-                        using (StringReader sr = new StringReader(html_text))
-                        {
-                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, facturapdf, sr);
-                        }
-
-                        facturapdf.Close();
-                        stream.Close();
+                        filas += "<tr>";
+                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column6"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column1"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column2"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column3"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column4"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column5"].Value?.ToString() + "</td>";
+                        filas += "</tr>";
                     }
 
-                    cbPagos.SelectedItem = null;
-                    txt_cliente_ruc.Clear();
-                    txt_cliente_nombre.Clear();
-                    txt_id_producto.Clear();
-                    txt_cantidad.Text = "1";
-                    dataGridView1.Rows.Clear();
-                    suma = 0;
-                    txt_monto_final.Text = "Gs " + suma;
-                }
+                    html_text = html_text.Replace("@FILAS", filas);
+                    html_text = html_text.Replace("@TOTAL", txt_monto_final.Text);
 
-                try
-                {
-                    System.Diagnostics.Process.Start("C:\\Users\\msalomon\\Documents\\Oracle\\Facturas\\" + nombreArchivo);
 
+                    if (save.ShowDialog() == DialogResult.OK)
+                    {
+                        using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
+                        {
+                            Document facturapdf = new Document(PageSize.A4, 25, 25, 25, 25);
+                            PdfWriter writer = PdfWriter.GetInstance(facturapdf, stream);
+
+                            facturapdf.Open();
+                            facturapdf.Add(new Phrase());
+
+                            using (StringReader sr = new StringReader(html_text))
+                            {
+                                XMLWorkerHelper.GetInstance().ParseXHtml(writer, facturapdf, sr);
+                            }
+
+                            facturapdf.Close();
+                            stream.Close();
+                        }
+
+                        cbPagos.SelectedItem = null;
+                        txt_cliente_ruc.Clear();
+                        txt_cliente_nombre.Clear();
+                        txt_id_producto.Clear();
+                        txt_cantidad.Text = "1";
+                        dataGridView1.Rows.Clear();
+                        id_conteo = 0;
+                        suma = 0;
+                        txt_monto_final.Text = "Gs " + suma;
+                    }
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(save.FileName);
+
+                    }
+                    catch { }
                 }
-                catch {}
+                else { MessageBox.Show("Agregue al menos un producto");}
             }
-            else {MessageBox.Show("Datos Necesarios incompletos");
-            }
+            else { MessageBox.Show("Datos Necesarios incompletos"); }
         }
 
         private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -444,10 +442,10 @@ namespace Test
                 if (dataGridView1.CurrentCell != null)
                 {
                     var fila_seleccionada = dataGridView1.CurrentRow.Index;
-                    var id_produc = dataGridView1.Rows[fila_seleccionada].Cells[0].Value?.ToString();
-                    var cantidad = dataGridView1.Rows[fila_seleccionada].Cells[2].Value?.ToString();
+                    var id_produc = dataGridView1.Rows[fila_seleccionada].Cells[1].Value?.ToString();
+                    var cantidad = dataGridView1.Rows[fila_seleccionada].Cells[3].Value?.ToString();
 
-                    var valor_importe = Convert.ToInt32(dataGridView1.Rows[fila_seleccionada].Cells[4].Value.ToString());
+                    var valor_importe = Convert.ToInt32(dataGridView1.Rows[fila_seleccionada].Cells[5].Value.ToString());
 
                     if (id_produc != string.Empty)
                     {
@@ -461,7 +459,7 @@ namespace Test
                             }
                             dataGridView1.Rows.RemoveAt(fila_seleccionada);
 
-                            var res = reestablecer_stock(id_produc, cantidad);
+                            var res = reestablecer_stock(Convert.ToInt32(id_produc), Convert.ToInt32(cantidad));
                             MessageBox.Show(res);
 
                             suma = suma - valor_importe;
@@ -473,16 +471,16 @@ namespace Test
             catch (Exception ex) { MessageBox.Show(ex.Message);}
         }
 
-        private string reestablecer_stock(string producto, string cantidad)
+        private string reestablecer_stock(int producto, int cantidad)
         {
             oracle.Open();
             OracleCommand query = new OracleCommand("pkg_abm_system.sp_add_stock", oracle);
             query.CommandType = CommandType.StoredProcedure;
 
-            query.Parameters.Add("id_", OracleType.Int32).Value = Convert.ToInt32(producto);
-            query.Parameters.Add("cantidad", OracleType.Int32).Value = Convert.ToInt32(cantidad);
+            query.Parameters.Add("id_", OracleType.Int32).Value = producto;
+            query.Parameters.Add("cantidad", OracleType.Int32).Value = cantidad;
             query.Parameters.Add("msg", OracleType.Cursor).Direction = ParameterDirection.Output;
-
+            
             var msg = query.ExecuteReader();
 
             msg.Read();
@@ -497,7 +495,7 @@ namespace Test
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                reestablecer_stock(row.Cells[0].Value.ToString(), row.Cells[2].Value.ToString());
+                reestablecer_stock(Convert.ToInt32(row.Cells[1].Value.ToString()), Convert.ToInt32(row.Cells[3].Value.ToString()));
             }
         }
 
@@ -515,6 +513,15 @@ namespace Test
             txt_monto_final.Text = "Gs "+suma;
         }
 
+        private void txt_cantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_cantidad.Text.StartsWith("0"))
+            {
+                MessageBox.Show("La cantidad 0 no es valida");
+                txt_cantidad.ResetText();
+            }
+        }
+
         private void eliminar_detalle(int num)
         {
             oracle.Open();
@@ -525,6 +532,16 @@ namespace Test
             query.ExecuteNonQuery();
 
             oracle.Close();
+        }
+
+        private Int32 check_empty_data()
+        {
+            int x = 1;
+            if (txt_cliente_ruc.Text != string.Empty && txt_cantidad.Text != string.Empty && cbPagos.SelectedItem != null)
+            {
+                x = 0;
+            }
+            return x;
         }
     }
 }

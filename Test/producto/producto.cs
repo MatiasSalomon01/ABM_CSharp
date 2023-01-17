@@ -19,6 +19,9 @@ namespace Test
     {
         string user;
         int panelY = 81;
+        int panel_categoria_oculto = 56;
+        int panel_categoria_desplegar = 92;
+        Boolean estado = true;
         OracleConnection oracle;
         public producto()
         {
@@ -40,6 +43,8 @@ namespace Test
             btn_visualizar.BackColor = Color.FromArgb(187, 255, 159);
             btn_eliminar.BackColor = Color.FromArgb(187, 255, 159);
             btn_actualizar.BackColor = Color.FromArgb(187, 255, 159);
+            btn_categoria.BackColor = Color.FromArgb(187, 255, 159);
+            btn_crear_categoria.BackColor = Color.FromArgb(171, 255, 136);
 
             crear_producto1.Hide();
             visualizar_producto1.Hide();
@@ -151,6 +156,49 @@ namespace Test
         private void btn_eliminar_MouseEnter(object sender, EventArgs e)
         {
             btn_eliminar.BackColor = Color.FromArgb(149, 229, 115);
+        }
+
+        private void btn_categoria_Click(object sender, EventArgs e)
+        {
+            crear_producto1.Hide();
+            visualizar_producto1.Hide();
+            actualizar_producto1.Hide();
+            eliminar_producto1.Hide();
+            panel_seleccion.Location = new Point(-4, 374);
+            panel_seleccion.BackColor = Color.Green;
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (estado)
+            {
+                panel_categoria.Height +=10;
+                if (panel_categoria.Size == panel_categoria.MaximumSize)
+                {
+                    timer1.Stop();
+                    estado = false;
+                }
+            }
+            else
+            {
+                panel_categoria.Height -= 10;
+                if (panel_categoria.Size == panel_categoria.MinimumSize)
+                {
+                    timer1.Stop();
+                    estado = true;
+                }
+            }
+        }
+
+        private void btn_categoria_MouseEnter(object sender, EventArgs e)
+        {
+            btn_categoria.BackColor = Color.FromArgb(149, 229, 115);
+        }
+
+        private void btn_categoria_MouseLeave(object sender, EventArgs e)
+        {
+            btn_categoria.BackColor = Color.FromArgb(187, 255, 159);
         }
     }
 }

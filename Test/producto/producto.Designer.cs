@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(producto));
             this.button10 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -36,15 +37,20 @@
             this.btn_visualizar = new System.Windows.Forms.Button();
             this.btn_crear = new System.Windows.Forms.Button();
             this.panel_seleccion = new System.Windows.Forms.Panel();
+            this.panel_categoria = new System.Windows.Forms.Panel();
+            this.btn_categoria = new System.Windows.Forms.Button();
+            this.btn_crear_categoria = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.eliminar_producto1 = new Test.eliminar_producto();
+            this.actualizar_producto1 = new Test.actualizar_producto();
+            this.visualizar_producto1 = new Test.visualizar_producto();
+            this.crear_producto1 = new Test.crear_producto();
             this.userControl41 = new Test.eliminar_producto();
             this.userControl31 = new Test.actualizar_producto();
             this.userControl21 = new Test.visualizar_producto();
             this.userControl11 = new Test.crear_producto();
-            this.crear_producto1 = new Test.crear_producto();
-            this.visualizar_producto1 = new Test.visualizar_producto();
-            this.actualizar_producto1 = new Test.actualizar_producto();
-            this.eliminar_producto1 = new Test.eliminar_producto();
             this.panel1.SuspendLayout();
+            this.panel_categoria.SuspendLayout();
             this.SuspendLayout();
             // 
             // button10
@@ -61,6 +67,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.panel_categoria);
             this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_actualizar);
             this.panel1.Controls.Add(this.btn_visualizar);
@@ -139,6 +146,84 @@
             this.panel_seleccion.Size = new System.Drawing.Size(10, 52);
             this.panel_seleccion.TabIndex = 15;
             // 
+            // panel_categoria
+            // 
+            this.panel_categoria.Controls.Add(this.btn_crear_categoria);
+            this.panel_categoria.Controls.Add(this.btn_categoria);
+            this.panel_categoria.Location = new System.Drawing.Point(0, 294);
+            this.panel_categoria.MaximumSize = new System.Drawing.Size(168, 88);
+            this.panel_categoria.MinimumSize = new System.Drawing.Size(168, 52);
+            this.panel_categoria.Name = "panel_categoria";
+            this.panel_categoria.Size = new System.Drawing.Size(168, 52);
+            this.panel_categoria.TabIndex = 4;
+            // 
+            // btn_categoria
+            // 
+            this.btn_categoria.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_categoria.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_categoria.Location = new System.Drawing.Point(0, 0);
+            this.btn_categoria.MinimumSize = new System.Drawing.Size(168, 52);
+            this.btn_categoria.Name = "btn_categoria";
+            this.btn_categoria.Size = new System.Drawing.Size(168, 52);
+            this.btn_categoria.TabIndex = 0;
+            this.btn_categoria.Text = "Categoria";
+            this.btn_categoria.UseVisualStyleBackColor = false;
+            this.btn_categoria.Click += new System.EventHandler(this.btn_categoria_Click);
+            this.btn_categoria.MouseEnter += new System.EventHandler(this.btn_categoria_MouseEnter);
+            this.btn_categoria.MouseLeave += new System.EventHandler(this.btn_categoria_MouseLeave);
+            // 
+            // btn_crear_categoria
+            // 
+            this.btn_crear_categoria.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_crear_categoria.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_crear_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_crear_categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_crear_categoria.Location = new System.Drawing.Point(0, 51);
+            this.btn_crear_categoria.Name = "btn_crear_categoria";
+            this.btn_crear_categoria.Size = new System.Drawing.Size(168, 34);
+            this.btn_crear_categoria.TabIndex = 1;
+            this.btn_crear_categoria.Text = "Crear";
+            this.btn_crear_categoria.UseVisualStyleBackColor = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 15;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // eliminar_producto1
+            // 
+            this.eliminar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.eliminar_producto1.Location = new System.Drawing.Point(216, 12);
+            this.eliminar_producto1.Name = "eliminar_producto1";
+            this.eliminar_producto1.Size = new System.Drawing.Size(635, 477);
+            this.eliminar_producto1.TabIndex = 19;
+            // 
+            // actualizar_producto1
+            // 
+            this.actualizar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.actualizar_producto1.Location = new System.Drawing.Point(216, 12);
+            this.actualizar_producto1.Name = "actualizar_producto1";
+            this.actualizar_producto1.Size = new System.Drawing.Size(635, 562);
+            this.actualizar_producto1.TabIndex = 18;
+            // 
+            // visualizar_producto1
+            // 
+            this.visualizar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.visualizar_producto1.Location = new System.Drawing.Point(216, 12);
+            this.visualizar_producto1.Name = "visualizar_producto1";
+            this.visualizar_producto1.Size = new System.Drawing.Size(635, 477);
+            this.visualizar_producto1.TabIndex = 17;
+            // 
+            // crear_producto1
+            // 
+            this.crear_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.crear_producto1.Location = new System.Drawing.Point(216, 12);
+            this.crear_producto1.Name = "crear_producto1";
+            this.crear_producto1.Size = new System.Drawing.Size(635, 477);
+            this.crear_producto1.TabIndex = 16;
+            // 
             // userControl41
             // 
             this.userControl41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
@@ -171,38 +256,6 @@
             this.userControl11.Size = new System.Drawing.Size(635, 477);
             this.userControl11.TabIndex = 11;
             // 
-            // crear_producto1
-            // 
-            this.crear_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
-            this.crear_producto1.Location = new System.Drawing.Point(216, 12);
-            this.crear_producto1.Name = "crear_producto1";
-            this.crear_producto1.Size = new System.Drawing.Size(635, 477);
-            this.crear_producto1.TabIndex = 16;
-            // 
-            // visualizar_producto1
-            // 
-            this.visualizar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
-            this.visualizar_producto1.Location = new System.Drawing.Point(216, 12);
-            this.visualizar_producto1.Name = "visualizar_producto1";
-            this.visualizar_producto1.Size = new System.Drawing.Size(635, 477);
-            this.visualizar_producto1.TabIndex = 17;
-            // 
-            // actualizar_producto1
-            // 
-            this.actualizar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
-            this.actualizar_producto1.Location = new System.Drawing.Point(216, 12);
-            this.actualizar_producto1.Name = "actualizar_producto1";
-            this.actualizar_producto1.Size = new System.Drawing.Size(635, 562);
-            this.actualizar_producto1.TabIndex = 18;
-            // 
-            // eliminar_producto1
-            // 
-            this.eliminar_producto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
-            this.eliminar_producto1.Location = new System.Drawing.Point(216, 12);
-            this.eliminar_producto1.Name = "eliminar_producto1";
-            this.eliminar_producto1.Size = new System.Drawing.Size(635, 477);
-            this.eliminar_producto1.TabIndex = 19;
-            // 
             // producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,6 +277,7 @@
             this.Load += new System.EventHandler(this.crear_producto_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.crear_producto_KeyDown);
             this.panel1.ResumeLayout(false);
+            this.panel_categoria.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,5 +298,9 @@
         private visualizar_producto visualizar_producto1;
         private actualizar_producto actualizar_producto1;
         private eliminar_producto eliminar_producto1;
+        private System.Windows.Forms.Panel panel_categoria;
+        private System.Windows.Forms.Button btn_crear_categoria;
+        private System.Windows.Forms.Button btn_categoria;
+        private System.Windows.Forms.Timer timer1;
     }
 }

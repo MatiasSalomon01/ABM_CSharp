@@ -35,25 +35,7 @@ namespace Test
      
         private void button1_Click(object sender, EventArgs e)
         {
-            var status = conectarDb();
-            if (status.Equals(true))
-            {
-                string usuario = textBox1.Text;
-                string passwrd = textBox2.Text.ToString();
-
-                var permiso = validar_user(usuario, passwrd);
-
-                if (permiso == true)
-                {
-                    var form3 = new menu(usuario);
-                    form3.Show();
-                    this.Hide();
-                }
-                textBox1.ResetText();
-                textBox2.ResetText();
-
-                textBox1.Focus();
-            }
+            enter_app();
         }
 
         private bool conectarDb()
@@ -149,6 +131,38 @@ namespace Test
         private void login_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                enter_app();
+            }
+        }
+
+        private void enter_app()
+        {
+            var status = conectarDb();
+            if (status.Equals(true))
+            {
+                string usuario = textBox1.Text;
+                string passwrd = textBox2.Text.ToString();
+
+                var permiso = validar_user(usuario, passwrd);
+
+                if (permiso == true)
+                {
+                    var form3 = new menu(usuario);
+                    form3.Show();
+                    this.Hide();
+                    }
+
+                textBox1.ResetText();
+                textBox2.ResetText();
+
+                textBox1.Focus();
+            }
         }
     }
 }

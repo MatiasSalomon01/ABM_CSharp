@@ -76,8 +76,9 @@ namespace Test
 
                 oracle.Close();
         }
-        private void rellenar_categorias()
+        public void rellenar_categorias()
         {
+            comboBox1.Items.Clear();
             oracle.Open();
 
             OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_categorias", oracle);
@@ -94,8 +95,10 @@ namespace Test
             oracle.Close();
         }
 
-        private void rellenar_proveedores()
+        public void rellenar_proveedores()
         {
+            comboBox2.Items.Clear();
+
             oracle.Open();
 
             OracleCommand query = new OracleCommand("pkg_abm_system.sp_get_proveedores", oracle);

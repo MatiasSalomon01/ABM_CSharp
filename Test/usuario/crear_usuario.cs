@@ -46,7 +46,7 @@ namespace Test
             if ((nom != "") && (ape != "")&&(direcc != "") && (fecha_nac != "")&&(tel != "") && (email != "")&&(usu != "") && (contra != ""))
             {
 
-                OracleCommand query = new OracleCommand("pkg_cliente.sp_create_user", oracle);
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_user", oracle);
                 query.Parameters.Add("nom", DbType.String).Value = nom;
                 query.Parameters.Add("ape", DbType.String).Value = ape;
                 query.Parameters.Add("direcc", DbType.String).Value = direcc;

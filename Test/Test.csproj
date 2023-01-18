@@ -84,6 +84,18 @@
     <Compile Include="cliente\crear_cliente.Designer.cs">
       <DependentUpon>crear_cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="producto\UserControlCategoria\eliminar_categoria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControlCategoria\eliminar_categoria.Designer.cs">
+      <DependentUpon>eliminar_categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producto\UserControlCategoria\crear_categoria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControlCategoria\crear_categoria.Designer.cs">
+      <DependentUpon>crear_categoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="producto\producto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cliente\crear_cliente.resx">
       <DependentUpon>crear_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControlCategoria\eliminar_categoria.resx">
+      <DependentUpon>eliminar_categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControlCategoria\crear_categoria.resx">
+      <DependentUpon>crear_categoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="producto\producto.resx">
       <DependentUpon>producto.cs</DependentUpon>

@@ -109,12 +109,7 @@ namespace Test
             oracle.Close();
 
             get_data();
-
-            txt_nom.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
+            limpiar_txt();
             rellenar_categorias();
             rellenar_proveedores();
         }
@@ -156,6 +151,15 @@ namespace Test
                 comboBox2.Items.Add(dr.GetString(0));
             }
             oracle.Close();
+        }
+
+        public void limpiar_txt()
+        {
+            txt_nom.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
         }
     }
 }

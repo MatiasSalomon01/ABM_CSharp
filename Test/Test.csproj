@@ -84,6 +84,18 @@
     <Compile Include="cliente\crear_cliente.Designer.cs">
       <DependentUpon>crear_cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="producto\UserControlProveedor\crear_proveedor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControlProveedor\crear_proveedor.Designer.cs">
+      <DependentUpon>crear_proveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producto\UserControlProveedor\eliminar_proveedor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="producto\UserControlProveedor\eliminar_proveedor.Designer.cs">
+      <DependentUpon>eliminar_proveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="producto\UserControlCategoria\eliminar_categoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +194,12 @@
     <EmbeddedResource Include="cliente\crear_cliente.resx">
       <DependentUpon>crear_cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControlProveedor\crear_proveedor.resx">
+      <DependentUpon>crear_proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producto\UserControlProveedor\eliminar_proveedor.resx">
+      <DependentUpon>eliminar_proveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="producto\UserControlCategoria\eliminar_categoria.resx">
       <DependentUpon>eliminar_categoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,5 +293,6 @@
   <ItemGroup>
     <None Include="Resources\computer_23805.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

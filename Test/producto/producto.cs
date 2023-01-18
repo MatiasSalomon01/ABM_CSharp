@@ -57,6 +57,8 @@ namespace Test
             eliminar_producto1.Hide();
             crear_categoria1.Hide();
             eliminar_categoria2.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
         }
 
 
@@ -89,6 +91,8 @@ namespace Test
             eliminar_producto1.Hide();
             crear_categoria1.Hide();
             eliminar_categoria2.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
             crear_producto1.Visible = true;
             crear_producto1.rellenar_categorias();
             crear_producto1.rellenar_proveedores();
@@ -104,6 +108,8 @@ namespace Test
             eliminar_producto1.Hide();
             crear_categoria1.Hide();
             eliminar_categoria2.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
             visualizar_producto1.Visible = true;
             visualizar_producto1.get_data();
             panel_seleccion.Location = new Point(-4, 139);
@@ -117,8 +123,11 @@ namespace Test
             eliminar_producto1.Hide();
             crear_categoria1.Hide();
             eliminar_categoria2.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
             actualizar_producto1.Visible = true;
             actualizar_producto1.get_data();
+            actualizar_producto1.limpiar_txt();
             actualizar_producto1.rellenar_categorias();
             actualizar_producto1.rellenar_proveedores();
             panel_seleccion.Location = new Point(-4, 212);
@@ -132,6 +141,8 @@ namespace Test
             actualizar_producto1.Hide();
             eliminar_categoria2.Hide();
             crear_categoria1.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
             eliminar_producto1.Visible = true;
             panel_seleccion.Location = new Point(-4, 285);
             panel_seleccion.BackColor = Color.Green;
@@ -185,6 +196,8 @@ namespace Test
             eliminar_producto1.Hide();
             crear_categoria1.Hide();
             eliminar_categoria2.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
             panel_seleccion.Location = new Point(-4, 358);
             panel_seleccion.BackColor = Color.Green;
             timer1.Start();
@@ -231,7 +244,11 @@ namespace Test
             actualizar_producto1.Hide();
             eliminar_producto1.Hide();
             eliminar_categoria2.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
             crear_categoria1.Visible = true;
+            panel_seleccion.Location = new Point(-4, 358);
+            panel_seleccion.BackColor = Color.Green;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -264,15 +281,9 @@ namespace Test
             eliminar_producto1.Hide();
             crear_categoria1.Hide();
             eliminar_categoria2.Hide();
-
-            if (panel_categoria.Size == panel_categoria.MaximumSize)
-            {
-                panel_seleccion.Location = new Point(-4, 501);
-            }
-            else
-            {
-                panel_seleccion.Location = new Point(-4, 431);
-            }
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
+            panel_seleccion_proveedor();
             panel_seleccion.BackColor = Color.Green;
             timer2.Start();
         }
@@ -284,7 +295,53 @@ namespace Test
             actualizar_producto1.Hide();
             eliminar_producto1.Hide();
             crear_categoria1.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Hide();
             eliminar_categoria2.Visible = true;
+            eliminar_categoria2.get_data();
+            eliminar_categoria2.limpiar_txt();
+            panel_seleccion.Location = new Point(-4, 358);
+            panel_seleccion.BackColor = Color.Green;
+        }
+
+        private void btn_crear_proveedor_Click(object sender, EventArgs e)
+        {
+            crear_producto1.Hide();
+            visualizar_producto1.Hide();
+            actualizar_producto1.Hide();
+            eliminar_producto1.Hide();
+            crear_categoria1.Hide();
+            eliminar_categoria2.Hide();
+            eliminar_proveedor1.Hide();
+            crear_proveedor1.Visible = true;
+            panel_seleccion_proveedor();
+        }
+
+        private void btn_eliminar_proveedor_Click(object sender, EventArgs e)
+        {
+            crear_producto1.Hide();
+            visualizar_producto1.Hide();
+            actualizar_producto1.Hide();
+            eliminar_producto1.Hide();
+            crear_categoria1.Hide();
+            eliminar_categoria2.Hide();
+            crear_proveedor1.Hide();
+            eliminar_proveedor1.Visible = true;
+            eliminar_proveedor1.get_data();
+            eliminar_proveedor1.limpiar_txt();
+            panel_seleccion_proveedor();
+        }
+
+        private void panel_seleccion_proveedor()
+        {
+            if (panel_categoria.Size == panel_categoria.MaximumSize)
+            {
+                panel_seleccion.Location = new Point(-4, 501);
+            }
+            else
+            {
+                panel_seleccion.Location = new Point(-4, 431);
+            }
         }
     }
 }

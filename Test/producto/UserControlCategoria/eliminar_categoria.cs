@@ -84,6 +84,10 @@ namespace Test
             oracle.Close();
 
             get_data();
+
+        }
+        public void limpiar_txt()
+        {
             txt_id_categoria.Clear();
             txt_descrip_categoria.Clear();
         }

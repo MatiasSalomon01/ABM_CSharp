@@ -46,6 +46,8 @@
             this.btn_crear = new System.Windows.Forms.Button();
             this.panel_seleccion = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.eliminar_categoria2 = new Test.eliminar_categoria();
             this.crear_categoria1 = new Test.crear_categoria();
             this.eliminar_producto1 = new Test.eliminar_producto();
             this.actualizar_producto1 = new Test.actualizar_producto();
@@ -55,8 +57,8 @@
             this.userControl31 = new Test.actualizar_producto();
             this.userControl21 = new Test.visualizar_producto();
             this.userControl11 = new Test.crear_producto();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.eliminar_categoria2 = new Test.eliminar_categoria();
+            this.crear_proveedor1 = new Test.crear_proveedor();
+            this.eliminar_proveedor1 = new Test.eliminar_proveedor();
             this.panel1.SuspendLayout();
             this.panel_proveedor.SuspendLayout();
             this.panel_categoria.SuspendLayout();
@@ -111,6 +113,7 @@
             this.btn_eliminar_proveedor.TabIndex = 2;
             this.btn_eliminar_proveedor.Text = "Eliminar";
             this.btn_eliminar_proveedor.UseVisualStyleBackColor = false;
+            this.btn_eliminar_proveedor.Click += new System.EventHandler(this.btn_eliminar_proveedor_Click);
             // 
             // btn_crear_proveedor
             // 
@@ -124,6 +127,7 @@
             this.btn_crear_proveedor.TabIndex = 1;
             this.btn_crear_proveedor.Text = "Crear";
             this.btn_crear_proveedor.UseVisualStyleBackColor = false;
+            this.btn_crear_proveedor.Click += new System.EventHandler(this.btn_crear_proveedor_Click);
             // 
             // btn_proveedor
             // 
@@ -271,6 +275,18 @@
             this.timer1.Interval = 15;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 15;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // eliminar_categoria2
+            // 
+            this.eliminar_categoria2.Location = new System.Drawing.Point(216, 20);
+            this.eliminar_categoria2.Name = "eliminar_categoria2";
+            this.eliminar_categoria2.Size = new System.Drawing.Size(635, 477);
+            this.eliminar_categoria2.TabIndex = 21;
+            // 
             // crear_categoria1
             // 
             this.crear_categoria1.Location = new System.Drawing.Point(224, 20);
@@ -342,23 +358,27 @@
             this.userControl11.Size = new System.Drawing.Size(635, 477);
             this.userControl11.TabIndex = 11;
             // 
-            // timer2
+            // crear_proveedor1
             // 
-            this.timer2.Interval = 15;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.crear_proveedor1.Location = new System.Drawing.Point(216, 41);
+            this.crear_proveedor1.Name = "crear_proveedor1";
+            this.crear_proveedor1.Size = new System.Drawing.Size(635, 477);
+            this.crear_proveedor1.TabIndex = 22;
             // 
-            // eliminar_categoria2
+            // eliminar_proveedor1
             // 
-            this.eliminar_categoria2.Location = new System.Drawing.Point(216, 20);
-            this.eliminar_categoria2.Name = "eliminar_categoria2";
-            this.eliminar_categoria2.Size = new System.Drawing.Size(635, 477);
-            this.eliminar_categoria2.TabIndex = 21;
+            this.eliminar_proveedor1.Location = new System.Drawing.Point(223, 41);
+            this.eliminar_proveedor1.Name = "eliminar_proveedor1";
+            this.eliminar_proveedor1.Size = new System.Drawing.Size(636, 477);
+            this.eliminar_proveedor1.TabIndex = 3;
             // 
             // producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 643);
+            this.Controls.Add(this.eliminar_proveedor1);
+            this.Controls.Add(this.crear_proveedor1);
             this.Controls.Add(this.eliminar_categoria2);
             this.Controls.Add(this.crear_categoria1);
             this.Controls.Add(this.eliminar_producto1);
@@ -411,5 +431,7 @@
         private System.Windows.Forms.Button btn_proveedor;
         private System.Windows.Forms.Timer timer2;
         private eliminar_categoria eliminar_categoria2;
+        private crear_proveedor crear_proveedor1;
+        private eliminar_proveedor eliminar_proveedor1;
     }
 }

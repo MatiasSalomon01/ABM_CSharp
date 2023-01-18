@@ -50,11 +50,11 @@ namespace Test
 
         private void button1_MouseEnter(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(149, 229, 115);
+            //button1.BackColor = Color.FromArgb(149, 229, 115);
         }
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(187, 255, 159);
+            //button1.BackColor = Color.FromArgb(187, 255, 159);
         }
     }
 }

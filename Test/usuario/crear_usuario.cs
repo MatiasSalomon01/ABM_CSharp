@@ -88,5 +88,15 @@ namespace Test
         {
             this.BackColor = Color.FromArgb(219, 255, 204);
         }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.FromArgb(187, 255, 159);
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Transparent;
+        }
     }
 }

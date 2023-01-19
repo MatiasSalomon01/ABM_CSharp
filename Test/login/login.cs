@@ -161,8 +161,8 @@ namespace Test
                     progressbar1.user = usuario;
                     progressbar1.login = this;
 
-                    var form3 = new menu(usuario);
-                    form3.Show();
+                    /*var form3 = new menu(usuario);
+                    form3.Show();*/
                 }
 
                 textBox1.ResetText();

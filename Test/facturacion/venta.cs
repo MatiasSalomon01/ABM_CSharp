@@ -534,6 +534,16 @@ namespace Test
             oracle.Close();
         }
 
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.FromArgb(187, 255, 159);
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.Transparent;
+        }
+
         private Int32 check_empty_data()
         {
             int x = 1;

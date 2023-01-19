@@ -60,5 +60,16 @@ namespace Test
             var venta= new venta(user);
             venta.Visible = true;
         }
+
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.FromArgb(187, 255, 159);
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.Transparent;
+
+        }
     }
 }

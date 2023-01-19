@@ -223,14 +223,19 @@
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Image = global::Test.Properties.Resources.back31;
             this.button10.Location = new System.Drawing.Point(12, 12);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(60, 28);
+            this.button10.Size = new System.Drawing.Size(34, 28);
             this.button10.TabIndex = 16;
-            this.button10.Text = "Atras";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.MouseEnter += new System.EventHandler(this.button10_MouseEnter);
+            this.button10.MouseLeave += new System.EventHandler(this.button10_MouseLeave);
             // 
             // crear_cliente
             // 

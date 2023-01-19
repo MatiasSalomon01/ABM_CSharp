@@ -50,7 +50,7 @@ namespace Test
             btn_eliminar_categoria.BackColor = Color.FromArgb(171, 255, 136);
             btn_crear_proveedor.BackColor = Color.FromArgb(171, 255, 136);
             btn_eliminar_proveedor.BackColor = Color.FromArgb(171, 255, 136);
-
+            
             crear_producto1.Hide();
             visualizar_producto1.Hide();
             actualizar_producto1.Hide();
@@ -342,6 +342,16 @@ namespace Test
             {
                 panel_seleccion.Location = new Point(-4, 431);
             }
+        }
+
+        private void button10_MouseEnter(object sender, EventArgs e)
+        {
+            button10.BackColor = Color.FromArgb(187, 255, 159);
+        }
+
+        private void button10_MouseLeave(object sender, EventArgs e)
+        {
+            button10.BackColor = Color.Transparent;
         }
     }
 }

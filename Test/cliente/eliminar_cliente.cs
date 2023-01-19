@@ -171,5 +171,16 @@ namespace Test
         {
 
         }
+
+        private void button3_MouseEnter_1(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.FromArgb(187, 255, 159);
+
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.Transparent;
+        }
     }
 }

@@ -47,6 +47,9 @@
             this.panel_seleccion = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.eliminar_proveedor1 = new Test.eliminar_proveedor();
+            this.crear_proveedor1 = new Test.crear_proveedor();
             this.eliminar_categoria2 = new Test.eliminar_categoria();
             this.crear_categoria1 = new Test.crear_categoria();
             this.eliminar_producto1 = new Test.eliminar_producto();
@@ -57,27 +60,32 @@
             this.userControl31 = new Test.actualizar_producto();
             this.userControl21 = new Test.visualizar_producto();
             this.userControl11 = new Test.crear_producto();
-            this.crear_proveedor1 = new Test.crear_proveedor();
-            this.eliminar_proveedor1 = new Test.eliminar_proveedor();
             this.panel1.SuspendLayout();
             this.panel_proveedor.SuspendLayout();
             this.panel_categoria.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(12, 12);
+            this.button10.Image = global::Test.Properties.Resources.back31;
+            this.button10.Location = new System.Drawing.Point(13, 12);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(60, 28);
+            this.button10.Size = new System.Drawing.Size(34, 28);
             this.button10.TabIndex = 10;
-            this.button10.Text = "Atras";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.MouseEnter += new System.EventHandler(this.button10_MouseEnter);
+            this.button10.MouseLeave += new System.EventHandler(this.button10_MouseLeave);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.panel_proveedor);
             this.panel1.Controls.Add(this.panel_categoria);
             this.panel1.Controls.Add(this.btn_eliminar);
@@ -104,7 +112,7 @@
             // btn_eliminar_proveedor
             // 
             this.btn_eliminar_proveedor.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_eliminar_proveedor.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_eliminar_proveedor.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_eliminar_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_eliminar_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar_proveedor.Location = new System.Drawing.Point(0, 85);
@@ -118,7 +126,7 @@
             // btn_crear_proveedor
             // 
             this.btn_crear_proveedor.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_crear_proveedor.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_crear_proveedor.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_crear_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_crear_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_crear_proveedor.Location = new System.Drawing.Point(0, 51);
@@ -132,7 +140,7 @@
             // btn_proveedor
             // 
             this.btn_proveedor.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_proveedor.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_proveedor.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_proveedor.Location = new System.Drawing.Point(0, 0);
@@ -159,7 +167,7 @@
             // btn_eliminar_categoria
             // 
             this.btn_eliminar_categoria.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_eliminar_categoria.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_eliminar_categoria.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_eliminar_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_eliminar_categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar_categoria.Location = new System.Drawing.Point(0, 85);
@@ -173,7 +181,7 @@
             // btn_crear_categoria
             // 
             this.btn_crear_categoria.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_crear_categoria.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_crear_categoria.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_crear_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_crear_categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_crear_categoria.Location = new System.Drawing.Point(0, 51);
@@ -187,7 +195,7 @@
             // btn_categoria
             // 
             this.btn_categoria.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_categoria.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_categoria.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_categoria.Location = new System.Drawing.Point(0, 0);
@@ -203,7 +211,7 @@
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.Location = new System.Drawing.Point(0, 220);
@@ -218,7 +226,7 @@
             // 
             // btn_actualizar
             // 
-            this.btn_actualizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_actualizar.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_actualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_actualizar.Location = new System.Drawing.Point(0, 147);
@@ -233,7 +241,7 @@
             // 
             // btn_visualizar
             // 
-            this.btn_visualizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_visualizar.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_visualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_visualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_visualizar.Location = new System.Drawing.Point(0, 74);
@@ -248,7 +256,7 @@
             // 
             // btn_crear
             // 
-            this.btn_crear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_crear.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btn_crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_crear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_crear.Location = new System.Drawing.Point(0, 0);
@@ -263,7 +271,7 @@
             // 
             // panel_seleccion
             // 
-            this.panel_seleccion.BackColor = System.Drawing.Color.Transparent;
+            this.panel_seleccion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel_seleccion.ForeColor = System.Drawing.Color.Transparent;
             this.panel_seleccion.Location = new System.Drawing.Point(-4, 66);
             this.panel_seleccion.Name = "panel_seleccion";
@@ -279,6 +287,29 @@
             // 
             this.timer2.Interval = 15;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.button10);
+            this.panel2.Location = new System.Drawing.Point(-1, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(193, 654);
+            this.panel2.TabIndex = 23;
+            // 
+            // eliminar_proveedor1
+            // 
+            this.eliminar_proveedor1.Location = new System.Drawing.Point(223, 41);
+            this.eliminar_proveedor1.Name = "eliminar_proveedor1";
+            this.eliminar_proveedor1.Size = new System.Drawing.Size(636, 477);
+            this.eliminar_proveedor1.TabIndex = 3;
+            // 
+            // crear_proveedor1
+            // 
+            this.crear_proveedor1.Location = new System.Drawing.Point(216, 41);
+            this.crear_proveedor1.Name = "crear_proveedor1";
+            this.crear_proveedor1.Size = new System.Drawing.Size(635, 477);
+            this.crear_proveedor1.TabIndex = 22;
             // 
             // eliminar_categoria2
             // 
@@ -358,20 +389,6 @@
             this.userControl11.Size = new System.Drawing.Size(635, 477);
             this.userControl11.TabIndex = 11;
             // 
-            // crear_proveedor1
-            // 
-            this.crear_proveedor1.Location = new System.Drawing.Point(216, 41);
-            this.crear_proveedor1.Name = "crear_proveedor1";
-            this.crear_proveedor1.Size = new System.Drawing.Size(635, 477);
-            this.crear_proveedor1.TabIndex = 22;
-            // 
-            // eliminar_proveedor1
-            // 
-            this.eliminar_proveedor1.Location = new System.Drawing.Point(223, 41);
-            this.eliminar_proveedor1.Name = "eliminar_proveedor1";
-            this.eliminar_proveedor1.Size = new System.Drawing.Size(636, 477);
-            this.eliminar_proveedor1.TabIndex = 3;
-            // 
             // producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,8 +403,8 @@
             this.Controls.Add(this.visualizar_producto1);
             this.Controls.Add(this.crear_producto1);
             this.Controls.Add(this.panel_seleccion);
-            this.Controls.Add(this.button10);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -399,6 +416,7 @@
             this.panel1.ResumeLayout(false);
             this.panel_proveedor.ResumeLayout(false);
             this.panel_categoria.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -433,5 +451,6 @@
         private eliminar_categoria eliminar_categoria2;
         private crear_proveedor crear_proveedor1;
         private eliminar_proveedor eliminar_proveedor1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

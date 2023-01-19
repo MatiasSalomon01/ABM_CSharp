@@ -70,5 +70,16 @@ namespace Test
             var manejo_de_datos = new manejo_de_datos(user);
             manejo_de_datos.Visible = true;
         }
+
+        private void button3_MouseEnter_1(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.FromArgb(187, 255, 159);
+
+        }
+
+        private void button3_MouseLeave_1(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.Transparent;
+        }
     }
 }

@@ -279,9 +279,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gradienta-UF_wwDxI6uk-unsplash.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\trashcan_106521.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -301,12 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\computer_23805.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bienvenido.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bienvenido %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bienvenido2.png" />

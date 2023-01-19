@@ -31,24 +31,31 @@ namespace Test
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            oracle.Open();
-            OracleCommand query = new OracleCommand("pkg_abm_system.sp_delete_proveedor", oracle);
-            query.CommandType = CommandType.StoredProcedure;
-
-            query.Parameters.Add("id_", OracleType.Int32).Value = Convert.ToInt32(txt_id_proveedor.Text);
-            query.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
-
-            var x = query.ExecuteReader();
-
-            if(x.Read())
+            if (txt_id_proveedor.Text != string.Empty)
             {
-                MessageBox.Show(x.GetString(0));
+                oracle.Open();
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_delete_proveedor", oracle);
+                query.CommandType = CommandType.StoredProcedure;
+
+                query.Parameters.Add("id_", OracleType.Int32).Value = Convert.ToInt32(txt_id_proveedor.Text);
+                query.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+                var x = query.ExecuteReader();
+
+                if (x.Read())
+                {
+                    MessageBox.Show(x.GetString(0));
+                }
+
+                oracle.Close();
+
+                limpiar_txt();
+                get_data();
             }
-
-            oracle.Close();
-
-            limpiar_txt();
-            get_data();
+            else
+            {
+                MessageBox.Show("Error - Datos Incompletos");
+            }
         }
         public void get_data()
         {

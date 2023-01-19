@@ -38,26 +38,33 @@ namespace Test
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            oracle.Open();
-            OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_proveedor", oracle);
-            query.CommandType = CommandType.StoredProcedure;
-            query.Parameters.Add("nom", OracleType.VarChar).Value = txt_nombre.Text;
-            query.Parameters.Add("direcc", OracleType.VarChar).Value = txt_direccion.Text;
-            query.Parameters.Add("tel", OracleType.VarChar).Value = txt_telefono.Text;
-            query.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
-
-            var x = query.ExecuteReader();
-
-            if (x.Read())
+            if (txt_nombre.Text != string.Empty && txt_direccion.Text != string.Empty && txt_telefono.Text != string.Empty)
             {
-                MessageBox.Show(x.GetString(0));
+                oracle.Open();
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_proveedor", oracle);
+                query.CommandType = CommandType.StoredProcedure;
+                query.Parameters.Add("nom", OracleType.VarChar).Value = txt_nombre.Text;
+                query.Parameters.Add("direcc", OracleType.VarChar).Value = txt_direccion.Text;
+                query.Parameters.Add("tel", OracleType.VarChar).Value = txt_telefono.Text;
+                query.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+                var x = query.ExecuteReader();
+
+                if (x.Read())
+                {
+                    MessageBox.Show(x.GetString(0));
+                }
+
+                oracle.Close();
+
+                txt_direccion.Clear();
+                txt_telefono.Clear();
+                txt_nombre.Clear();
             }
-
-            oracle.Close();
-
-            txt_direccion.Clear();
-            txt_telefono.Clear();
-            txt_nombre.Clear();
+            else
+            {
+                MessageBox.Show("Error - Datos Incompletos");
+            }
         }
     }
 }

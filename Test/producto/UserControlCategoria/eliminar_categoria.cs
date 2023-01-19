@@ -63,28 +63,33 @@ namespace Test
             }
             catch{}
         }
-
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            oracle.Open();
-            OracleCommand query = new OracleCommand("pkg_abm_system.sp_delete_categoria", oracle);
-
-            query.CommandType = CommandType.StoredProcedure;
-
-            query.Parameters.Add("id_", OracleType.Int32).Value = Convert.ToInt32(txt_id_categoria.Text);
-            query.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
-
-            var x = query.ExecuteReader();
-
-            if (x.Read())
+            if (txt_id_categoria.Text != string.Empty && txt_descrip_categoria.Text != string.Empty)
             {
-                MessageBox.Show(x.GetString(0));
+                oracle.Open();
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_delete_categoria", oracle);
+
+                query.CommandType = CommandType.StoredProcedure;
+
+                query.Parameters.Add("id_", OracleType.Int32).Value = Convert.ToInt32(txt_id_categoria.Text);
+                query.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+                var x = query.ExecuteReader();
+
+                if (x.Read())
+                {
+                    MessageBox.Show(x.GetString(0));
+                }
+
+                oracle.Close();
+                get_data();
+                limpiar_txt();
             }
-
-            oracle.Close();
-
-            get_data();
-
+            else
+            {
+                MessageBox.Show("Error - Datos Incompletos");
+            }
         }
         public void limpiar_txt()
         {

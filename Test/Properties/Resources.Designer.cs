@@ -61,42 +61,22 @@ namespace Test.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bienvenido2 {
+            get {
+                object obj = ResourceManager.GetObject("bienvenido2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
         internal static System.Drawing.Icon computer_23805 {
             get {
                 object obj = ResourceManager.GetObject("computer_23805", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap fondo {
-            get {
-                object obj = ResourceManager.GetObject("fondo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap fondo1 {
-            get {
-                object obj = ResourceManager.GetObject("fondo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gradienta_UF_wwDxI6uk_unsplash {
-            get {
-                object obj = ResourceManager.GetObject("gradienta-UF_wwDxI6uk-unsplash", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -128,7 +108,9 @@ namespace Test.Properties {
         ///            text-align: center;
         ///        }
         ///    &lt;/style&gt;
-        /// [resto de la cadena truncado]&quot;;.
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;table s [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string index {
             get {

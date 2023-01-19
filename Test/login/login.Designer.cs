@@ -38,6 +38,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.progressbar1 = new Test.progressbar();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +77,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.progressbar1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
@@ -141,6 +143,13 @@
             this.label5.Click += new System.EventHandler(this.label5_Click);
             this.label5.MouseLeave += new System.EventHandler(this.label5_MouseLeave);
             // 
+            // progressbar1
+            // 
+            this.progressbar1.Location = new System.Drawing.Point(36, 15);
+            this.progressbar1.Name = "progressbar1";
+            this.progressbar1.Size = new System.Drawing.Size(360, 247);
+            this.progressbar1.TabIndex = 6;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,6 +189,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private progressbar progressbar1;
     }
 }
 

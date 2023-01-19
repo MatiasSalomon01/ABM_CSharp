@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Test
 {
@@ -26,13 +27,14 @@ namespace Test
         public login()
         {
             InitializeComponent();
+            progressbar1.Visible= false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(219, 255, 204);
         }
-     
+
         private void button1_Click(object sender, EventArgs e)
         {
             enter_app();
@@ -143,6 +145,7 @@ namespace Test
 
         private void enter_app()
         {
+
             var status = conectarDb();
             if (status.Equals(true))
             {
@@ -153,10 +156,14 @@ namespace Test
 
                 if (permiso == true)
                 {
+                    progressbar1.Visible = true;
+                    progressbar1.empezar = 0;
+                    progressbar1.user = usuario;
+                    progressbar1.login = this;
+
                     var form3 = new menu(usuario);
                     form3.Show();
-                    this.Hide();
-                    }
+                }
 
                 textBox1.ResetText();
                 textBox2.ResetText();

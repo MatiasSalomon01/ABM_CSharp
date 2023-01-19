@@ -138,6 +138,12 @@
     <Compile Include="menu\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="login\progresbar\progressbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="login\progresbar\progressbar.Designer.cs">
+      <DependentUpon>progressbar.cs</DependentUpon>
+    </Compile>
     <Compile Include="usuario\crear_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     <EmbeddedResource Include="menu\menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="login\progresbar\progressbar.resx">
+      <DependentUpon>progressbar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="usuario\crear_usuario.resx">
       <DependentUpon>crear_usuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +302,14 @@
   <ItemGroup>
     <None Include="Resources\computer_23805.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bienvenido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bienvenido %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bienvenido2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

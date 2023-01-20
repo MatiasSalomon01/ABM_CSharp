@@ -214,10 +214,11 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::Test.Properties.Resources.save;
-            this.button1.Location = new System.Drawing.Point(716, 69);
+            this.button1.Location = new System.Drawing.Point(638, 69);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 37);
+            this.button1.Size = new System.Drawing.Size(118, 37);
             this.button1.TabIndex = 15;
+            this.button1.Text = "Guardar";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

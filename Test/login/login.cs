@@ -177,36 +177,25 @@ namespace Test
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox2.UseSystemPasswordChar == true)
-            {
-                button2.Image = Test.Properties.Resources.show;
-                textBox2.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                button2.Image = Test.Properties.Resources.hide;
-                textBox2.UseSystemPasswordChar = true;
-            }
-            /*if (0.Equals(passwrd_state))
-            {
-                textBox2.UseSystemPasswordChar = true;
-                button2.Image = Test.Properties.Resources.show;
-                passwrd_state = 1;
-            }
-            else
-            {
-                textBox2.UseSystemPasswordChar = false;
-                button2.Image = Test.Properties.Resources.hide;
-                passwrd_state = 0;
-            }*/
-
+            //if (textBox2.Text != string.Empty)
+            //{
+                if (textBox2.UseSystemPasswordChar == true)
+                {
+                    button2.Image = Test.Properties.Resources.hide;
+                    textBox2.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    button2.Image = Test.Properties.Resources.show;
+                    textBox2.UseSystemPasswordChar = true;
+                }
+            //}
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
         {
             label5.Font = new Font(label5.Font.Name, label5.Font.SizeInPoints, FontStyle.Underline);
             label5.ForeColor = Color.Purple;
-
         }
     }
 }

@@ -409,9 +409,9 @@
             // 
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.Image = global::Test.Properties.Resources.delete;
-            this.btn_eliminar.Location = new System.Drawing.Point(661, 264);
+            this.btn_eliminar.Location = new System.Drawing.Point(671, 264);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(119, 40);
+            this.btn_eliminar.Size = new System.Drawing.Size(109, 40);
             this.btn_eliminar.TabIndex = 13;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

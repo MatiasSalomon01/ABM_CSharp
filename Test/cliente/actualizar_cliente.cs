@@ -86,7 +86,7 @@ namespace Test
                 textBox5.Text = row.Cells[5].Value.ToString();
                 textBox6.Text = row.Cells[6].Value.ToString();
 
-                num = Convert.ToInt16(row.Cells[0].Value.ToString());
+                num = Convert.ToInt32(row.Cells[0].Value.ToString());
             }
             catch
             {
@@ -105,7 +105,7 @@ namespace Test
 
             OracleCommand query = new OracleCommand("pkg_abm_system.sp_update_cliente_by_id", oracle);
             query.CommandType = CommandType.StoredProcedure;
-            query.Parameters.Add("num", OracleType.Int16).Value = num;
+            query.Parameters.Add("num", OracleType.Int32).Value = num;
             query.Parameters.Add("nom", OracleType.VarChar).Value = textBox1.Text;
             query.Parameters.Add("ape", OracleType.VarChar).Value = textBox2.Text;
             query.Parameters.Add("direcc", OracleType.VarChar).Value = textBox3.Text;
@@ -116,7 +116,7 @@ namespace Test
             query.Parameters["respuesta"].Direction = ParameterDirection.Output;
 
             query.ExecuteNonQuery();
-            MessageBox.Show("Cliente Actualizado con exito");
+            MessageBox.Show("Cliente Actualizado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             textBox1.Clear();
             textBox2.Clear();

@@ -72,7 +72,7 @@ namespace Test
             }
             else
             {
-                MessageBox.Show("Usuario o Contrasela no reconocido, porfavor intente de nuevo");
+                MessageBox.Show("Usuario o Contrasela no reconocido, porfavor intente de nuevo", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             oracle.Close();
@@ -99,7 +99,7 @@ namespace Test
             }
             else
             {
-                MessageBox.Show("Usuario o Contraseña no reconocido, porfavor intente de nuevo");
+                MessageBox.Show("Usuario o Contraseña no reconocido, porfavor intente de nuevo", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 status = false;
             }
             

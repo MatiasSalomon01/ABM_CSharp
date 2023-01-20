@@ -68,7 +68,7 @@ namespace Test
                 }
                 else
                 {
-                    MessageBox.Show("Producto no encontrado, intente de nuevo");
+                    MessageBox.Show("Producto no encontrado, intente de nuevo", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txt_dato.Clear();
                     txt_dato.Focus();
                 }
@@ -84,13 +84,13 @@ namespace Test
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Seguro que quieres eliminar Producto " + txt_dato.Text + "?", "ATENCIÓN", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Seguro que quieres eliminar Producto " + txt_dato.Text + "?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             var id = Int32.Parse(txt_dato.Text);
 
             if (dialogResult == DialogResult.Yes)
             {
                 var res = eliminar(id);
-                MessageBox.Show(res);
+                MessageBox.Show(res, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 dataGridView1.DataSource = null;
                 txt_dato.Clear();

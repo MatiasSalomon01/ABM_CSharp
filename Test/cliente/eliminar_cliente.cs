@@ -53,7 +53,7 @@ namespace Test
             var cb_data = cb_buscar.GetItemText(cb_buscar.SelectedIndex);
             if ("".Equals(txt_dato.Text))
             {
-                MessageBox.Show("Error - Campo vacio");
+                MessageBox.Show("Error - Campo vacio", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -89,12 +89,12 @@ namespace Test
                     }
                     else if ("1".Equals(cb_data))
                     {
-                        MessageBox.Show("Nombre");
+                        MessageBox.Show("Nombre", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Cliente no encontrado, intente de nuevo");
+                    MessageBox.Show("Cliente no encontrado, intente de nuevo", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_dato.Clear();
                     txt_dato.Focus();
                 }
@@ -104,13 +104,13 @@ namespace Test
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Seguro que quieres eliminar Cliente "+txt_dato.Text+"?", "ATENCIÓN", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Seguro que quieres eliminar Cliente "+txt_dato.Text+"?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             var id = Int32.Parse(txt_dato.Text);
 
             if (dialogResult == DialogResult.Yes)
             {
                 var res = eliminar(id);
-                MessageBox.Show(res);
+                MessageBox.Show(res, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 dataGridView1.DataSource = null;
                 txt_dato.Clear();

@@ -104,7 +104,7 @@ namespace Test
             query.Parameters["respuesta"].Direction = ParameterDirection.Output;
 
             query.ExecuteNonQuery();
-            MessageBox.Show("Producto Actualizado con exito");
+            MessageBox.Show("Producto Actualizado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             oracle.Close();
 

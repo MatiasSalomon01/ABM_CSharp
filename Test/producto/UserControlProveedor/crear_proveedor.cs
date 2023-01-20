@@ -52,7 +52,7 @@ namespace Test
 
                 if (x.Read())
                 {
-                    MessageBox.Show(x.GetString(0));
+                    MessageBox.Show(x.GetString(0), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 oracle.Close();
@@ -63,7 +63,7 @@ namespace Test
             }
             else
             {
-                MessageBox.Show("Error - Datos Incompletos");
+                MessageBox.Show("Error - Datos Incompletos", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

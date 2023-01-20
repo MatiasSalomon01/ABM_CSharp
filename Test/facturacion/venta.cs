@@ -174,7 +174,7 @@ namespace Test
             string forma_pago;
             if (cbPagos.SelectedItem == null )
             {
-                MessageBox.Show("Error - Datos necesarios Incompletos");
+                MessageBox.Show("Error - Datos necesarios Incompletos", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -213,14 +213,14 @@ namespace Test
                         {
                             if (err.Code == 20001)
                             {
-                                MessageBox.Show("Cantidad excedida");
+                                MessageBox.Show("Cantidad excedida", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                             oracle.Close();
                         }
                     }
-                    else{ MessageBox.Show("Stock Insuficiente, quedan " + msg); }
+                    else{ MessageBox.Show("Stock Insuficiente, quedan " + msg, "", MessageBoxButtons.OK, MessageBoxIcon.Information); }
                 }
-                else{ MessageBox.Show("Error - Datos necesarios Incompletos"); }
+                else{ MessageBox.Show("Error - Datos necesarios Incompletos", "", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
             oracle.Close();
         }
@@ -405,9 +405,9 @@ namespace Test
                     }
                     catch { }
                 }
-                else { MessageBox.Show("Agregue al menos un producto");}
+                else { MessageBox.Show("Agregue al menos un producto", "", MessageBoxButtons.OK, MessageBoxIcon.Information);}
             }
-            else { MessageBox.Show("Datos Necesarios incompletos"); }
+            else { MessageBox.Show("Datos Necesarios incompletos", "", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void txt_cantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -449,7 +449,7 @@ namespace Test
 
                     if (id_produc != string.Empty)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Seguro que quieres eliminar este Producto?", "ATENCIÓN", MessageBoxButtons.YesNo);
+                        DialogResult dialogResult = MessageBox.Show("Seguro que quieres eliminar este Producto?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (dialogResult == DialogResult.Yes)
                         {
@@ -460,7 +460,7 @@ namespace Test
                             dataGridView1.Rows.RemoveAt(fila_seleccionada);
 
                             var res = reestablecer_stock(Convert.ToInt32(id_produc), Convert.ToInt32(cantidad));
-                            MessageBox.Show(res);
+                            MessageBox.Show(res, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             suma = suma - valor_importe;
                             txt_monto_final.Text = "Gs " + suma.ToString();
@@ -517,7 +517,7 @@ namespace Test
         {
             if (txt_cantidad.Text.StartsWith("0"))
             {
-                MessageBox.Show("La cantidad 0 no es valida");
+                MessageBox.Show("La cantidad 0 no es valida", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txt_cantidad.ResetText();
             }
         }

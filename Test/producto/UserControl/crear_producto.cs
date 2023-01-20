@@ -38,11 +38,12 @@ namespace Test
                     string nom = textBox1.Text;
                     string precio = textBox2.Text;
                     string stock = textBox3.Text;
-                    string categoria = comboBox1.SelectedItem.ToString();
-                    string proveedor = comboBox2.SelectedItem.ToString();
 
-                    if ((nom != "") && (precio != "") && (stock != "") && (categoria != "") && (proveedor != ""))
+                    if ((nom != "") && (precio != "") && (stock != "") && (comboBox1.SelectedItem != null) && (comboBox2.SelectedItem != null))
                     {
+
+                        string categoria = comboBox1.SelectedItem.ToString();
+                        string proveedor = comboBox2.SelectedItem.ToString();
 
                         OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_producto", oracle);
                         query.Parameters.Add("nom", DbType.String).Value = nom;
@@ -54,23 +55,23 @@ namespace Test
                         query.CommandType = CommandType.StoredProcedure;
 
                         query.ExecuteNonQuery();
-                        MessageBox.Show("Creación Exitosa!!");
+                        MessageBox.Show("Creación Exitosa!!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Error - Usuario o Contraseña incompleta");
+                        MessageBox.Show("Error - Datos incompletos", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     textBox1.Clear();
                     textBox2.Clear();
                     textBox3.Clear();
-                    comboBox1.ResetText();
-                    comboBox2.ResetText();
+                    comboBox1.SelectedItem = null;
+                    comboBox2.SelectedItem = null;
                 }
                 catch (OracleException err)
                 {
                     if (err.Code == 06502)
                     {
-                    MessageBox.Show("Campos de Precio y Stock deben ser numericos");
+                    MessageBox.Show("Campos de Precio y Stock deben ser numericos", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
 

@@ -332,5 +332,8 @@
   <ItemGroup>
     <None Include="Resources\hide1.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

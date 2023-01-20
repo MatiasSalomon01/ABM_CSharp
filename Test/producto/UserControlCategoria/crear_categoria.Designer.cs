@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.txt_descripcion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,14 @@
             this.panel1.Size = new System.Drawing.Size(416, 100);
             this.panel1.TabIndex = 1;
             // 
+            // txt_descripcion
+            // 
+            this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_descripcion.Location = new System.Drawing.Point(137, 38);
+            this.txt_descripcion.Name = "txt_descripcion";
+            this.txt_descripcion.Size = new System.Drawing.Size(248, 29);
+            this.txt_descripcion.TabIndex = 1;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -65,14 +73,6 @@
             this.label2.Size = new System.Drawing.Size(115, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "Descripción:";
-            // 
-            // txt_descripcion
-            // 
-            this.txt_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_descripcion.Location = new System.Drawing.Point(137, 38);
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(248, 29);
-            this.txt_descripcion.TabIndex = 1;
             // 
             // btn_guardar
             // 

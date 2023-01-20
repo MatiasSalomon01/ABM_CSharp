@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTextSharp.text.html;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,14 @@ namespace Test
 {
     public partial class login : Form
     {
+        int passwrd_state = 0;
         private OracleConnection oracle;
 
         public login()
         {
             InitializeComponent();
             progressbar1.Visible= false;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -170,6 +173,35 @@ namespace Test
 
                 textBox1.Focus();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (0.Equals(passwrd_state))
+            {
+                textBox2.UseSystemPasswordChar = true;
+                button2.Image = Test.Properties.Resources.show;
+                passwrd_state = 1;
+            }
+            else
+            {
+                textBox2.UseSystemPasswordChar = false;
+                button2.Image = Test.Properties.Resources.hide;
+                passwrd_state = 0;
+            }
+
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Enter(object sender, EventArgs e)
+        {
         }
     }
 }

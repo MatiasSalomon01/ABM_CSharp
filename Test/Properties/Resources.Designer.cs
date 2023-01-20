@@ -151,6 +151,16 @@ namespace Test.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hide {
+            get {
+                object obj = ResourceManager.GetObject("hide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 
         ///&lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
@@ -183,6 +193,16 @@ namespace Test.Properties {
         internal static string index {
             get {
                 return ResourceManager.GetString("index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap show {
+            get {
+                object obj = ResourceManager.GetObject("show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

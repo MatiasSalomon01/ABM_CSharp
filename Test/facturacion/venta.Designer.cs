@@ -253,11 +253,13 @@
             // btn_agregar
             // 
             this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.Location = new System.Drawing.Point(653, 0);
+            this.btn_agregar.Image = global::Test.Properties.Resources.add2;
+            this.btn_agregar.Location = new System.Drawing.Point(637, 0);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(103, 39);
+            this.btn_agregar.Size = new System.Drawing.Size(119, 42);
             this.btn_agregar.TabIndex = 3;
             this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
@@ -282,7 +284,7 @@
             this.panel2.Controls.Add(this.btn_agregar);
             this.panel2.Location = new System.Drawing.Point(24, 206);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(756, 40);
+            this.panel2.Size = new System.Drawing.Size(756, 42);
             this.panel2.TabIndex = 7;
             // 
             // btn_ver
@@ -404,11 +406,13 @@
             // btn_eliminar
             // 
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(679, 264);
+            this.btn_eliminar.Image = global::Test.Properties.Resources.delete;
+            this.btn_eliminar.Location = new System.Drawing.Point(661, 264);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(101, 40);
+            this.btn_eliminar.Size = new System.Drawing.Size(119, 40);
             this.btn_eliminar.TabIndex = 13;
             this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.button2_Click);
             // 

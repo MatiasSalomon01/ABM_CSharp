@@ -96,16 +96,13 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::Test.Properties.Resources.show;
+            this.button2.Image = global::Test.Properties.Resources.hide;
             this.button2.Location = new System.Drawing.Point(386, 203);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 29);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            this.button2.Enter += new System.EventHandler(this.button2_Enter);
-            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
-            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
             // button1
             // 
@@ -160,6 +157,7 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Aquí";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.MouseEnter += new System.EventHandler(this.label5_MouseEnter);
             this.label5.MouseLeave += new System.EventHandler(this.label5_MouseLeave);
             // 
             // progressbar1

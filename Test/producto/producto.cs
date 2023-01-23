@@ -46,11 +46,10 @@ namespace Test
             btn_actualizar.BackColor = Color.FromArgb(187, 255, 159);
             btn_categoria.BackColor = Color.FromArgb(187, 255, 159);
             btn_proveedor.BackColor = Color.FromArgb(187, 255, 159);
-            btn_crear_categoria.BackColor = Color.FromArgb(171, 255, 136);
-            btn_eliminar_categoria.BackColor = Color.FromArgb(171, 255, 136);
-            btn_crear_proveedor.BackColor = Color.FromArgb(171, 255, 136);
-            btn_eliminar_proveedor.BackColor = Color.FromArgb(171, 255, 136);
-            
+            btn_crear_categoria.BackColor = Color.FromArgb(219, 255, 204);
+            btn_eliminar_categoria.BackColor = Color.FromArgb(219, 255, 204);
+            btn_crear_proveedor.BackColor = Color.FromArgb(219, 255, 204);
+            btn_eliminar_proveedor.BackColor = Color.FromArgb(219, 255, 204);
             crear_producto1.Hide();
             visualizar_producto1.Hide();
             actualizar_producto1.Hide();
@@ -60,7 +59,6 @@ namespace Test
             crear_proveedor1.Hide();
             eliminar_proveedor1.Hide();
         }
-
 
         private void crear_producto_KeyDown(object sender, KeyEventArgs e)
         {

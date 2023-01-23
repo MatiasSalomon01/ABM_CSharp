@@ -33,7 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_tel = new System.Windows.Forms.TextBox();
-            this.txt_nacimiento = new System.Windows.Forms.TextBox();
             this.txt_direcc = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.guardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,9 +64,9 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.txt_email);
             this.panel1.Controls.Add(this.txt_tel);
-            this.panel1.Controls.Add(this.txt_nacimiento);
             this.panel1.Controls.Add(this.txt_direcc);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
@@ -100,14 +100,7 @@
             this.txt_tel.Name = "txt_tel";
             this.txt_tel.Size = new System.Drawing.Size(353, 29);
             this.txt_tel.TabIndex = 4;
-            // 
-            // txt_nacimiento
-            // 
-            this.txt_nacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nacimiento.Location = new System.Drawing.Point(162, 193);
-            this.txt_nacimiento.Name = "txt_nacimiento";
-            this.txt_nacimiento.Size = new System.Drawing.Size(353, 29);
-            this.txt_nacimiento.TabIndex = 3;
+            this.txt_tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tel_KeyPress);
             // 
             // txt_direcc
             // 
@@ -259,6 +252,17 @@
             this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(162, 193);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(129, 29);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
             // crear_usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,11 +302,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_tel;
-        private System.Windows.Forms.TextBox txt_nacimiento;
         private System.Windows.Forms.TextBox txt_direcc;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

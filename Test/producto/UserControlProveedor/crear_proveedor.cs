@@ -66,5 +66,13 @@ namespace Test
                 MessageBox.Show("Error - Datos Incompletos", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txt_telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

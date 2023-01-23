@@ -84,34 +84,38 @@ namespace Test
                 oracle.Close();
 
                 num = Convert.ToInt16(row.Cells[0].Value.ToString());
+                button1.Enabled = true;
             }
             catch {}
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            oracle.Open();
+            if (button1.Enabled == true)
+            {
+                oracle.Open();
 
-            OracleCommand query = new OracleCommand("pkg_abm_system.sp_update_producto_by_id", oracle);
-            query.CommandType = CommandType.StoredProcedure;
-            query.Parameters.Add("num", OracleType.Int16).Value = num;
-            query.Parameters.Add("nom", OracleType.VarChar).Value = txt_nom.Text;
-            query.Parameters.Add("precio_", OracleType.Int32).Value = Convert.ToInt32(textBox2.Text);
-            query.Parameters.Add("stock_", OracleType.Int32).Value = Convert.ToInt32(textBox3.Text);
-            query.Parameters.Add("cat", OracleType.VarChar).Value = comboBox1.Text;
-            query.Parameters.Add("prov", OracleType.VarChar).Value = comboBox2.Text;
-            query.Parameters.Add("respuesta", OracleType.VarChar).Value = 0;
-            query.Parameters["respuesta"].Direction = ParameterDirection.Output;
+                OracleCommand query = new OracleCommand("pkg_abm_system.sp_update_producto_by_id", oracle);
+                query.CommandType = CommandType.StoredProcedure;
+                query.Parameters.Add("num", OracleType.Int16).Value = num;
+                query.Parameters.Add("nom", OracleType.VarChar).Value = txt_nom.Text;
+                query.Parameters.Add("precio_", OracleType.Int32).Value = Convert.ToInt32(textBox2.Text);
+                query.Parameters.Add("stock_", OracleType.Int32).Value = Convert.ToInt32(textBox3.Text);
+                query.Parameters.Add("cat", OracleType.VarChar).Value = comboBox1.Text;
+                query.Parameters.Add("prov", OracleType.VarChar).Value = comboBox2.Text;
+                query.Parameters.Add("respuesta", OracleType.VarChar).Value = 0;
+                query.Parameters["respuesta"].Direction = ParameterDirection.Output;
 
-            query.ExecuteNonQuery();
-            MessageBox.Show("Producto Actualizado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                query.ExecuteNonQuery();
+                MessageBox.Show("Producto Actualizado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            oracle.Close();
+                oracle.Close();
 
-            get_data();
-            limpiar_txt();
-            rellenar_categorias();
-            rellenar_proveedores();
+                get_data();
+                limpiar_txt();
+                rellenar_categorias();
+                rellenar_proveedores();
+            }
         }
         public void rellenar_categorias()
         {
@@ -160,6 +164,23 @@ namespace Test
             textBox3.Clear();
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
+            button1.Enabled = false;
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Test
             string nom = txt_nom.Text;
             string ape = txt_ape.Text;
             string direcc = txt_direcc.Text;
-            string fecha_nac = txt_nacimiento.Text;
+            string fecha_nac = dateTimePicker1.Value.ToString("dd/MM/yyyy");
             string tel = txt_tel.Text;
             string email = txt_email.Text;
             string usu = txt_usu.Text;
@@ -75,7 +75,7 @@ namespace Test
                     txt_nom.Clear();
                     txt_ape.Clear();
                     txt_direcc.Clear();
-                    txt_nacimiento.Clear();
+                    dateTimePicker1.ResetText();
                     txt_tel.Clear();
                     txt_email.Clear();
                     txt_usu.Clear();
@@ -88,7 +88,7 @@ namespace Test
             }
             else
             {
-                MessageBox.Show("Error - Usuario o Contraseña incompleta", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error - Información incompleta", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             oracle.Close();
@@ -113,6 +113,14 @@ namespace Test
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackColor = Color.Transparent;
+        }
+
+        private void txt_tel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

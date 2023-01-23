@@ -27,7 +27,7 @@ namespace Test
             var cb_data = cb_buscar.GetItemText(cb_buscar.SelectedIndex);
             if ("".Equals(txt_dato.Text))
             {
-                MessageBox.Show("Error - Campo vacio");
+                MessageBox.Show("Error - Campo vacio", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

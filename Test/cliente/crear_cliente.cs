@@ -44,7 +44,6 @@ namespace Test
             }
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             oracle.Open();
@@ -53,7 +52,7 @@ namespace Test
             string nom = txt_nom.Text;
             string ape = txt_ape.Text;
             string direcc = txt_direcc.Text;
-            string fecha_nac = txt_nacimiento.Text;
+            string fecha_nac = dateTimePicker1.Value.ToString("dd/MM/yyyy");
             string tel = txt_tel.Text;
             string email = txt_email.Text;
 
@@ -89,7 +88,7 @@ namespace Test
                     txt_nom.Clear();
                     txt_ape.Clear();
                     txt_direcc.Clear();
-                    txt_nacimiento.Clear();
+                    dateTimePicker1.ResetText();
                     txt_tel.Clear();
                     txt_email.Clear();
                 }
@@ -137,9 +136,17 @@ namespace Test
             txt_nom.Clear();
             txt_ape.Clear();
             txt_direcc.Clear();
-            txt_nacimiento.Clear();
+            dateTimePicker1.ResetText();
             txt_tel.Clear();
             txt_email.Clear();
+        }
+
+        private void txt_tel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

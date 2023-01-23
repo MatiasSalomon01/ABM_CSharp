@@ -34,7 +34,6 @@
             this.txt_cedula = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_tel = new System.Windows.Forms.TextBox();
-            this.txt_nacimiento = new System.Windows.Forms.TextBox();
             this.txt_direcc = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,11 +55,11 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txt_cedula);
             this.panel1.Controls.Add(this.txt_email);
             this.panel1.Controls.Add(this.txt_tel);
-            this.panel1.Controls.Add(this.txt_nacimiento);
             this.panel1.Controls.Add(this.txt_direcc);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
@@ -96,10 +96,10 @@
             // txt_email
             // 
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_email.Location = new System.Drawing.Point(119, 385);
+            this.txt_email.Location = new System.Drawing.Point(119, 387);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(353, 29);
-            this.txt_email.TabIndex = 5;
+            this.txt_email.TabIndex = 6;
             // 
             // txt_tel
             // 
@@ -107,15 +107,8 @@
             this.txt_tel.Location = new System.Drawing.Point(150, 331);
             this.txt_tel.Name = "txt_tel";
             this.txt_tel.Size = new System.Drawing.Size(353, 29);
-            this.txt_tel.TabIndex = 4;
-            // 
-            // txt_nacimiento
-            // 
-            this.txt_nacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nacimiento.Location = new System.Drawing.Point(173, 273);
-            this.txt_nacimiento.Name = "txt_nacimiento";
-            this.txt_nacimiento.Size = new System.Drawing.Size(353, 29);
-            this.txt_nacimiento.TabIndex = 3;
+            this.txt_tel.TabIndex = 5;
+            this.txt_tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tel_KeyPress);
             // 
             // txt_direcc
             // 
@@ -123,7 +116,7 @@
             this.txt_direcc.Location = new System.Drawing.Point(156, 216);
             this.txt_direcc.Name = "txt_direcc";
             this.txt_direcc.Size = new System.Drawing.Size(353, 29);
-            this.txt_direcc.TabIndex = 2;
+            this.txt_direcc.TabIndex = 3;
             // 
             // label9
             // 
@@ -171,7 +164,7 @@
             this.txt_ape.Location = new System.Drawing.Point(143, 158);
             this.txt_ape.Name = "txt_ape";
             this.txt_ape.Size = new System.Drawing.Size(353, 29);
-            this.txt_ape.TabIndex = 1;
+            this.txt_ape.TabIndex = 2;
             // 
             // label2
             // 
@@ -199,7 +192,7 @@
             this.txt_nom.Location = new System.Drawing.Point(141, 101);
             this.txt_nom.Name = "txt_nom";
             this.txt_nom.Size = new System.Drawing.Size(353, 29);
-            this.txt_nom.TabIndex = 0;
+            this.txt_nom.TabIndex = 1;
             // 
             // label1
             // 
@@ -218,7 +211,7 @@
             this.button1.Location = new System.Drawing.Point(638, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 37);
-            this.button1.TabIndex = 15;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Guardar";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
@@ -234,7 +227,7 @@
             this.button10.Location = new System.Drawing.Point(12, 12);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(34, 28);
-            this.button10.TabIndex = 16;
+            this.button10.TabIndex = 9;
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             this.button10.MouseEnter += new System.EventHandler(this.button10_MouseEnter);
@@ -246,10 +239,21 @@
             this.button2.Location = new System.Drawing.Point(62, 69);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 37);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 8;
             this.button2.Text = "Refrescar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(173, 273);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(129, 29);
+            this.dateTimePicker1.TabIndex = 4;
             // 
             // crear_cliente
             // 
@@ -279,7 +283,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_tel;
-        private System.Windows.Forms.TextBox txt_nacimiento;
         private System.Windows.Forms.TextBox txt_direcc;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -295,5 +298,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_cedula;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

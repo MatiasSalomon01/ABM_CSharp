@@ -13,6 +13,7 @@ namespace Test
 {
     public partial class crear_categoria : UserControl
     {
+        string iva = "";
         OracleConnection oracle;
         public crear_categoria()
         {
@@ -32,7 +33,7 @@ namespace Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txt_descripcion.Text != string.Empty)
+            if (txt_descripcion.Text != string.Empty && iva != string.Empty)
             {
                 oracle.Open();
                 OracleCommand query = new OracleCommand("pkg_abm_system.sp_create_categoria", oracle);
@@ -40,6 +41,7 @@ namespace Test
                 query.CommandType = CommandType.StoredProcedure;
 
                 query.Parameters.Add("descrip", OracleType.VarChar).Value = txt_descripcion.Text;
+                query.Parameters.Add("iva_", OracleType.VarChar).Value = iva;
                 query.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
 
                 var x = query.ExecuteReader();
@@ -51,6 +53,8 @@ namespace Test
 
                 oracle.Close();
                 txt_descripcion.Clear();
+                checkBox1.Checked = false;
+                checkBox2.Checked = false;
             }
             else
             {
@@ -61,6 +65,18 @@ namespace Test
         private void crear_categoria_Load(object sender, EventArgs e)
         {
             btn_guardar.BackColor = Color.FromArgb(187, 255, 159);
+        }
+
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            iva = checkBox1.Text;
+            checkBox2.Checked = false;
+        }
+
+        private void checkBox2_Click(object sender, EventArgs e)
+        {
+            iva = checkBox2.Text;
+            checkBox1.Checked = false;
         }
     }
 }

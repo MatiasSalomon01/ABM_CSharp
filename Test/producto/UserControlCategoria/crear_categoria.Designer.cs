@@ -33,6 +33,9 @@
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_guardar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,11 +52,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.checkBox2);
+            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txt_descripcion);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(94, 87);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(416, 100);
+            this.panel1.Size = new System.Drawing.Size(416, 144);
             this.panel1.TabIndex = 1;
             // 
             // txt_descripcion
@@ -79,7 +85,7 @@
             this.btn_guardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(392, 202);
+            this.btn_guardar.Location = new System.Drawing.Point(392, 253);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(118, 37);
             this.btn_guardar.TabIndex = 2;
@@ -88,6 +94,40 @@
             this.btn_guardar.Click += new System.EventHandler(this.button1_Click);
             this.btn_guardar.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.btn_guardar.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "IVA:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(67, 87);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(54, 28);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "5%";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(127, 87);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(64, 28);
+            this.checkBox2.TabIndex = 4;
+            this.checkBox2.Text = "10%";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Click += new System.EventHandler(this.checkBox2_Click);
             // 
             // crear_categoria
             // 
@@ -113,5 +153,8 @@
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_guardar;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

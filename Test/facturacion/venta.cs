@@ -27,6 +27,7 @@ namespace Test
         int id_conteo = 1;
         int valor = 0;
         int suma = 0;
+        double suma_iva = 0;
         int c_valor_cl = 0;
         int c_valor_p = 0;
         string tel, direc;
@@ -240,14 +241,30 @@ namespace Test
 
             int monto = Int32.Parse(query.Parameters["imp"].Value.ToString());
 
-            OracleCommand query1 = new OracleCommand("select nombre from producto where id_producto = '" + query.Parameters["id_"].Value + "'", oracle);
+            OracleCommand query1 = new OracleCommand("pkg_abm_system.sp_get_nombre_iva", oracle);
+            query1.CommandType = CommandType.StoredProcedure;
 
-            var nom = query1.ExecuteReader();
-            nom.Read();
+            query1.Parameters.Add("num", OracleType.Int32).Value = Convert.ToInt32(query.Parameters["id_"].Value);
+            query1.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
 
-            dataGridView1.Rows.Add(new object[] { id_conteo, query.Parameters["id_"].Value, nom.GetString(0), c, query.Parameters["pre"].Value, monto });
+            var data = query1.ExecuteReader();
+            data.Read();
+
+            double iva_impuesto;
+
+            if (data.GetString(1) == "5%")
+            {
+                iva_impuesto = (Convert.ToInt32(query.Parameters["imp"].Value))*0.05;
+                dataGridView1.Rows.Add(new object[] { id_conteo, query.Parameters["id_"].Value, data.GetString(0), c, query.Parameters["pre"].Value, iva_impuesto, "", monto });
+            }
+            else
+            {
+                iva_impuesto = (Convert.ToInt32(query.Parameters["imp"].Value)) * 0.10;
+                dataGridView1.Rows.Add(new object[] { id_conteo, query.Parameters["id_"].Value, data.GetString(0), c, query.Parameters["pre"].Value, "", iva_impuesto, monto });
+            }
             id_conteo += 1;
             suma += monto;
+            suma_iva += iva_impuesto;
             txt_monto_final.Text = "Gs " + suma.ToString();
 
             oracle.Close();
@@ -355,24 +372,27 @@ namespace Test
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         filas += "<tr>";
-                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column6"].Value?.ToString() + "</td>";
-                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column1"].Value?.ToString() + "</td>";
-                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column2"].Value?.ToString() + "</td>";
-                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column3"].Value?.ToString() + "</td>";
-                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column4"].Value?.ToString() + "</td>";
-                        filas += "<td style=\"padding-bottom: 5px;\">" + row.Cells["Column5"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column6"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column1"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column2"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column3"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column4"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column7"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column8"].Value?.ToString() + "</td>";
+                        filas += "<td style=\"padding-top: 10px;padding-top: 5px;\">" + row.Cells["Column5"].Value?.ToString() + "</td>";
                         filas += "</tr>";
                     }
 
                     html_text = html_text.Replace("@FILAS", filas);
                     html_text = html_text.Replace("@TOTAL", txt_monto_final.Text);
+                    html_text = html_text.Replace("@IVA", "Gs "+suma_iva.ToString());
 
 
                     if (save.ShowDialog() == DialogResult.OK)
                     {
                         using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
                         {
-                            Document facturapdf = new Document(PageSize.A4, 25, 25, 25, 25);
+                            Document facturapdf = new Document(PageSize.LEGAL);
                             PdfWriter writer = PdfWriter.GetInstance(facturapdf, stream);
 
                             facturapdf.Open();

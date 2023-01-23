@@ -30,7 +30,7 @@
     <table style="width: 100%;">
         <tr>
             <td class="td1" colspan="3" style="width: 55%;text-align:center;">
-                <img src="C:\Users\msalomon\Pictures\clt.png" alt="Alternate Text" />
+                <img src="C:\Users\msalomon\source\repos\ABM_CSharp\Test\Resources\clt.png" alt="Alternate Text" />
                 <p style="padding-top:10px">Cabaña los Troncos S.A.</p>
                 <p style="padding-top:5px">Dirección: Ayolas N° 437, esq. Estrella</p><p>Teléfono: 0985-838.848</p>
                 <p>Asunción - Paraguay</p>
@@ -60,12 +60,14 @@
                     <thead>
                         <tr></tr>
                         <tr>
-                            <th>ID</th>
-                            <th>ID Producto</th>
-                            <th>Descripción</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th>Importe</th>
+                            <th rowspan="2">ID</th>
+                            <th rowspan="2">ID Producto</th>
+                            <th rowspan="2">Descripción</th>
+                            <th rowspan="2">Cantidad</th>
+                            <th rowspan="2">Precio</th>
+                            <th rowspan="2">5%</th>
+                            <th rowspan="2">10%</th>
+                            <th rowspan="2">Importe</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,10 +79,21 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td class="td1" colspan="5" style="text-align: left;padding-left: 10px; padding-top: 15px;">Importe total:</td>
+                            <td class="td1" colspan="7" style="text-align: left;padding-left: 10px; padding-top: 15px;">Subtotal:</td>
+                            <td class="td1" style="font-size: 14px;padding-top: 15px;padding-left: 0px;">@TOTAL</td>
+                        </tr>
+                        <tr>
+                            <td class="td1" colspan="7" style="text-align: left;padding-left: 10px; padding-top: 15px;">Importe total:</td>
                             <td class="td1" style="padding-top: 15px;padding-left: 0px;background-color: rgb(219, 255, 204);">@TOTAL</td>
+                        </tr>
+                        <tr>
+                            <td class="td1" colspan="5" style="text-align: left;padding-left: 10px; padding-top: 15px;">Liquidación IVA:</td>
+                            <td class="td1" colspan="2" style="padding-top: 15px;padding-left: 0px;">@IVA</td>
+                            <td class="td1" style="padding-top: 15px;padding-left: 0px;"></td>
                         </tr>
                     </tbody>
                 </table>
